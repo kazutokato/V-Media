@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medium: MyString
+  feature: MyString
+  speed: MyString
+  gender: MyString
+
+two:
+  medium: MyString
+  feature: MyString
+  speed: MyString
+  gender: MyString
