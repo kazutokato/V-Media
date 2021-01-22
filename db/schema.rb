@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_093122) do
     t.string "prefecture", default: "", null: false
     t.string "nickname", default: "", null: false
     t.string "profile_image_id", default: "", null: false
-    t.string "text", default: "よろしくお願いします。", null: false
+    t.text "introduction", default: "よろしくお願いします。", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
