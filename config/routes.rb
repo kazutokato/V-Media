@@ -27,15 +27,16 @@ Rails.application.routes.draw do
         get 'thanks'
       end
     end
-
-    namespace :admin do
-      root to: 'homes#top'
-      resources :reviews, only: [:index, :show, :destroy]
-      resources :comments, only: [:destroy]
-      resources :ranks, only: [:index, :create, :update] do
-      resources :end_users, only: [:index, :show, :edit, :update, :destroy]
-      resources :contacts, only: [:index, :show]
-      resources :categories, only: [:index, :create, :destroy]
-    end
   end
+
+  namespace :admin do
+    root to: 'homes#top'
+    resources :reviews, only: [:index, :show, :destroy]
+    resources :comments, only: [:destroy]
+    resources :ranks, only: [:index, :create, :update]
+    resources :end_users, only: [:index, :show, :edit, :update, :destroy]
+    resources :contacts, only: [:index, :show]
+    resources :categories, only: [:index, :create, :destroy]
+  end
+
 end
