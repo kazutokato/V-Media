@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h5>ログイン</h5><br />
+      <h6 class="mb-3">会員の方はこちらからログイン</h6>
+      <%= form_with model: @end_user, url: end_user_session_path, local: true do |f| %>
+        <table class="table-sm ml-5">
+          <tbody class="mt-3">
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x1" %></td>
+            </tr>
+            <tr>
+              <td>パスワード</td>
+              <td><%= f.password_field :password, autocomplete: "current-password", size: "40x1" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit "ログイン", class:"btn btn-primary-outline mt-3" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+      <h6 class="mt-5">会員登録がお済みでない方</h6>
+      <p class="ml-5"><%= link_to 'こちら', new_end_user_registration_path %>　から新規登録を行ってください。</p>
+      <div>もしくは、<%= link_to 'こちら', homes_guest_sign_in_path, method: :post %>　からゲストユーザーとしてログインできます。</div>
+    </div>
+  </div>
+</div>
+

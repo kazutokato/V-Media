@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :end_users
+  devise_for :end_users, controllers: {
+    registrations: 'end_users/registrations',
+    sessions: 'end_users/sessions'
+  }
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    post '/homes/guest_sign_in', to: 'homes#new_guest'
     get 'top' => 'manuals#top'
     resources :end_users, only: [:show, :edit, :update] do
       member do
