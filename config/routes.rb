@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     get 'top' => 'manuals#top'
     resources :end_users, only: [:show, :edit, :update] do
       member do
-        get 'unsubscribe'
         patch 'withdraw'
         get 'thanks'
       end

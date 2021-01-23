@@ -78,3 +78,5 @@ gem 'rubocop'
 gem 'rubocop-rails'
 
 gem 'pry-byebug'
+
+gem 'data-confirm-modal'
