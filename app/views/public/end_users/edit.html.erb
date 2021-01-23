@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h5 class="ml-5 mt-5">プロフィール編集</h5><br />
+      <%= form_with model:@end_user, local:true do |f| %>
+        <table class="table-sm">
+          <tr><td>氏名</td><td><%= f.text_field :last_name, autofocus: true %> <%= f.text_field :first_name, autofocus: true %></td></tr>
+          <tr><td>年齢</td><td><%= f.text_field :age %></td></tr>
+          <tr><td>都道府県</td><td><%= f.text_field :prefecture %></td></tr>
+
+        </table>
+        <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "no_image_end_user.png", size: "100x100" %>
+        <label for="inputImage">プロフィール画像</label>
+        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+        <table class="table-sm">
+          <tr><td>ニックネーム</td><td><%= f.text_field :nickname, autofocus: true %></td></tr>
+          <tr><td>自己紹介文<br />(200字以内)</td><td><%= f.text_area :introduction %></td></tr>
+          <tr>
+            <td><%= f.submit '変更を保存', class:"btn btn-outline-primary" %></td>
+            <td><%= link_to '退会する', withdraw_end_user_path(@end_user.id), class:"btn btn-outline-danger", method: :patch, data: { confirm: '本当に退会しますか？<br />退会してしまうと、これまでのユーザーの情報は失われ<br />元に戻すにはご連絡いただく必要があります。', cancel: 'やめる', commit: 'はい'}, title: '退会最終確認' %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
