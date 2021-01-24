@@ -5,6 +5,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.integer :category_id
       t.string :content_name
       t.string :cast
+      t.string :gender
       t.text :body
 
       t.timestamps
