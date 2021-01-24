@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     resources :ranks, only: [:index, :create, :update]
     resources :end_users, only: [:index, :show, :edit, :update, :destroy]
     resources :contacts, only: [:index, :show]
-    resources :categories, only: [:index, :create, :destroy]
+    resources :categories, only: [:index, :edit, :update, :create, :destroy]
   end
 
 end
