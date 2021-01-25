@@ -44,9 +44,9 @@ Rails.application.routes.draw do
     resources :end_users, only: [:index, :show, :edit, :update, :destroy]
     resources :contacts, only: [:index, :show]
     resources :review_categories, only: [:index]
-    resources :medium, only: [:create, :destroy]
-    resources :feature, only: [:create, :destroy]
-    resources :genre, only: [:create, :destroy]
+    resources :media, only: [:create, :destroy]
+    resources :features, only: [:create, :destroy]
+    resources :genres, only: [:create, :destroy]
   end
 
 end
