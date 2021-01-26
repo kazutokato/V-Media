@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    post '/homes/guest_sign_in', to: 'homes#new_guest'
     get 'top' => 'manuals#top'
 
     resources :end_users, only: [:show, :edit, :update] do

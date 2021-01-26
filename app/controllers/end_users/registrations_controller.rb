@@ -3,6 +3,7 @@
 class EndUsers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+    before_action :check_guest, only: :destroy #ゲストユーザーの情報を削除されないよう防止
 
   # GET /resource/sign_up
   # def new
@@ -59,4 +60,10 @@ class EndUsers::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  def check_guest #ゲストユーザーの削除
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+    end
+  end
 end
