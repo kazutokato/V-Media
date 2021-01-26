@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medium_id: 1
+  feature_id: 1
+  genre_id: 1
+  review_id: 1
+
+two:
+  medium_id: 1
+  feature_id: 1
+  genre_id: 1
+  review_id: 1

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_093122) do
+ActiveRecord::Schema.define(version: 2021_01_25_092353) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 2021_01_21_093122) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "medium"
-    t.string "feature"
-    t.string "speed"
-    t.string "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -62,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_093122) do
     t.string "prefecture", default: "", null: false
     t.string "nickname", default: "", null: false
     t.string "profile_image_id", default: "", null: false
-    t.string "text", default: "よろしくお願いします。", null: false
+    t.text "introduction", default: "よろしくお願いします。", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,10 +68,37 @@ ActiveRecord::Schema.define(version: 2021_01_21_093122) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "features", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rates", force: :cascade do |t|
     t.integer "end_user_id"
     t.integer "review_id"
     t.float "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "review_categories", force: :cascade do |t|
+    t.integer "medium_id"
+    t.integer "feature_id"
+    t.integer "genre_id"
+    t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -90,6 +108,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_093122) do
     t.integer "category_id"
     t.string "content_name"
     t.string "cast"
+    t.string "gender"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
