@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     registrations: 'end_users/registrations',
     sessions: 'end_users/sessions'
   }
+
+  devise_scope :end_user do #ゲストログイン機能に関するルーティング
+    post 'end_users/guest_sign_in', to: 'end_users/sessions#new_guest'
+  end
+
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
@@ -12,8 +17,8 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    post '/homes/guest_sign_in', to: 'homes#new_guest'
     get 'top' => 'manuals#top'
+
     resources :end_users, only: [:show, :edit, :update] do
       member do
         patch 'withdraw'
