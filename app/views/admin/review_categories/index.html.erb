@@ -1,0 +1,92 @@
+<div class="container">
+  <h5 class="ml-5 mt-4 mb-4">レビューカテゴリー追加、一覧</h5>
+  <div class="row">
+    <div class="col-4">
+      <%= form_with model: @medium_new, url: admin_media_path, local: true do |f| %>
+        <table class="table-sm">
+          <tr>
+            <td><h6>放送形式</h6></td>
+            <td><%= f.text_field :content %></td>
+            <td><%= f.submit '登録', class:"btn btn-outline-success" %></td>
+          </tr>
+        </table>
+      <% end %>
+      <table class="table table-bordered mt-5">
+        <thead class="thead-light">
+          <tr>
+            <td class="text-center">放送形式</td>
+            <td></td>
+          </tr>
+        </thead>
+        <% @media.each do |medium| %>
+          <tr>
+            <td class="text-center">
+              <%= medium.content %>
+            </td>
+            <td class="text-center">
+              <%= link_to "削除する", admin_medium_path(medium), method: :delete, class:"btn btn-outline-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-4">
+      <%= form_with model: @feature_new, url: admin_features_path, local: true do |f| %>
+        <table class="table-sm">
+          <tr>
+            <td><h6>声の特徴</h6></td>
+            <td><%= f.text_field :content %></td>
+            <td><%= f.submit '登録', class:"btn btn-outline-success" %></td>
+          </tr>
+        </table>
+      <% end %>
+      <table class="table table-bordered mt-5">
+        <thead class="thead-light">
+          <tr>
+            <td class="text-center">声の特徴</td>
+            <td></td>
+          </tr>
+        </thead>
+        <% @features.each do |feature| %>
+          <tr>
+            <td class="text-center">
+              <%= feature.content %>
+            </td>
+            <td class="text-center">
+              <%= link_to "削除する", admin_feature_path(feature), method: :delete, class:"btn btn-outline-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-4">
+      <%= form_with model: @genre_new, url: admin_genres_path, local: true do |f| %>
+        <table class="table-sm">
+          <tr>
+            <td><h6>ジャンル</h6></td>
+            <td><%= f.text_field :content %></td>
+            <td><%= f.submit '登録', class:"btn btn-outline-success" %></td>
+          </tr>
+        </table>
+      <% end %>
+      <table class="table table-bordered mt-5">
+        <thead class="thead-light">
+          <tr>
+            <td class="text-center">ジャンル</td>
+            <td></td>
+          </tr>
+        </thead>
+        <% @genres.each do |genre| %>
+          <tr>
+            <td class="text-center">
+              <%= genre.content %>
+            </td>
+            <td class="text-center">
+              <%= link_to "削除する", admin_genre_path(genre), method: :delete, class:"btn btn-outline-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
