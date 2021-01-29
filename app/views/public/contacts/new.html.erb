@@ -1,1 +1,15 @@
-<h1>お問い合わせフォーム</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h5 class="ml-5 mt-4 mb-4">お問い合わせフォーム</h5>
+      <%= form_with model: @contact, url: confirm_contacts_path(@contact), local: true do |f| %>
+        <table class="table-sm">
+          <tr><td>お名前</td><td><%= f.text_field :name %></td>
+          <tr><td>E-mail</td><td><%= f.text_field :email %></td>
+          <tr><td>お問い合わせ内容</td><td><%= f.text_area :body %></td>
+          <tr><td><%= f.submit '内容確認へ', class:"btn btn-outline-primary" %></td></tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
