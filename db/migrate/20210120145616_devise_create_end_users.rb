@@ -39,7 +39,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[5.2]
       t.string :prefecture, null: false, default: ""
       t.string :nickname, null: false, default: ""
       t.string :profile_image_id, null: false, default: ""
-      t.text :introduction, null: false, default: "よろしくお願いします。"
+      t.text :introduction
       t.boolean :is_active, null: false, default: "true"
       t.timestamps null: false
     end
