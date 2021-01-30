@@ -22,7 +22,6 @@ Rails.application.routes.draw do
     resources :end_users, only: [:show, :edit, :update] do
       member do
         patch 'withdraw'
-        get 'thanks'
       end
     end
 
@@ -35,7 +34,6 @@ Rails.application.routes.draw do
 
     resources :contacts, only: [:new, :create] do
       collection do
-        get 'confirm'
         post 'confirm'
         get 'thanks'
       end
