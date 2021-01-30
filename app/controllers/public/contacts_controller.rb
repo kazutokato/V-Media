@@ -10,7 +10,7 @@ class Public::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      ContactMailer.contact_mail(@contact).deliver #お問い合わせ内容をデータベースに保存後、メールを送信
+      ContactMailer.contact_mail(@contact).deliver_now #お問い合わせ内容をデータベースに保存後、メールを送信
       redirect_to root_path
     else
       redirect_to new_contact_path

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-10 offset-1">
       <h5 class="ml-5 mt-4 mb-4">お問い合わせフォーム</h5>
-      <%= form_with model: @contact, url: confirm_contacts_path(@contact), local: true do |f| %>
+      <%= form_with model: @contact, url: confirm_contacts_path, local: true do |f| %>
         <table class="table-sm">
           <tr><td>お名前</td><td><%= f.text_field :name %></td>
           <tr><td>E-mail</td><td><%= f.text_field :email %></td>
