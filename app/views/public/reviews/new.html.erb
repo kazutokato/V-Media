@@ -1,2 +1,25 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h5 class="ml-5 mt-4 mb-4">レビュー投稿</h5>
+      <%= form_with model: @review_new, local: true do |f| %>
+        <table class="table-sm">
+          <tr><td>番組名</td><td><%= f.text_field :content_name %></td>
+          <tr><td>出演者</td><td><%= f.text_field :cast %></td>
+          <tr>
+            <td>性別 (出演者)</td>
+            <td>
+              <%= f.radio_button :gender, :male, checked: true %>
+              <%= f.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
+              <%= f.radio_button :gender, :female %>
+              <%= f.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
+              <%= f.radio_button :gender, :other %>
+              <%= f.label :gender, "その他", {value: :other, style: "display: inline-block;"} %>
+            </td>
+          <tr><td>レビュー(160字以内)</td><td><%= f.text_area :body %></td>
+          <tr><td></td><td><%= f.submit '投稿する', class:"btn btn-block btn-outline-primary" %></td></tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
