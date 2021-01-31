@@ -86,14 +86,6 @@ ActiveRecord::Schema.define(version: 2021_01_25_092353) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "rates", force: :cascade do |t|
-    t.integer "end_user_id"
-    t.integer "review_id"
-    t.float "rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "review_categories", force: :cascade do |t|
     t.integer "medium_id"
     t.integer "feature_id"
@@ -109,6 +101,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_092353) do
     t.string "content_name"
     t.string "cast"
     t.string "gender"
+    t.float "rate"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

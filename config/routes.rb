@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     resources :reviews do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
-      resources :rates, only: [:create, :update]
       resources :review_categories, only: [:create, :destroy]
     end
 

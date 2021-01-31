@@ -1,2 +1,62 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="container">
+  <h5>レビューフォーム</h5>
+  <%= form_with model: @review_new, local: true do |f| %>
+    <div class="form-group row">
+      <%= f.label :content_name, '番組名 ', class:'col-md-3 col-form-label' %>
+      <div class="col-md-6">
+        <%= f.text_field :content_name, class: "form-control",
+          placeholder:'番組名またはコンテンツ名' %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :cast, '出演者 ', class:'col-md-3 col-form-label' %>
+      <div class="col-md-6">
+        <%= f.text_field :cast, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :gender, '性別(出演者) ', class:'col-md-3 col-form-label' %>
+      <div class="col-md-6">
+        <%= f.radio_button :gender, :"男性", checked: true %>
+        <%= f.label :gender, "男性", {value: :"男性", style: "display: inline-block;"} %>
+        <%= f.radio_button :gender, :"女性" %>
+        <%= f.label :gender, "女性", {value: :"女性", style: "display: inline-block;"} %>
+        <%= f.radio_button :gender, :"その他" %>
+        <%= f.label :gender, "その他", {value: :"その他", style: "display: inline-block;"} %>
+      </div>
+    </div>
+
+    <div class="form-group row" id="star">
+      <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+      <%= f.hidden_field :rate, id: :review_star %>
+    </div>
+
+    <script>
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      score: 3,
+      scoreName: 'review[rate]',
+      half: true,
+    });
+    </script>
+
+    <div class="form-group row">
+      <%= f.label :body, 'レビュー', class:'col-md-3 col-form-label' %>
+      <div class="col-md-6">
+        <%= f.text_area :body, class: "form-control", rows: "8",
+          placeholder:'ここにレビューを書きこんでください。(160字以内)' %>
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+      <div class="col-md-6 offset-3">
+        <%= f.submit '投稿する', class:"btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+</div>

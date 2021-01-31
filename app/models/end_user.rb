@@ -6,12 +6,11 @@ class EndUser < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :rates, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
   attachment :profile_image
 
-  
+
 
   enum is_active: {Available: true, Invalid: false} #有効会員はtrue、退会済み会員はfalse
 
