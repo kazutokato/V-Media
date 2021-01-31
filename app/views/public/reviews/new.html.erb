@@ -1,25 +1,61 @@
 <div class="container">
-  <div class="row">
-    <div class="col-10 offset-1">
-      <h5 class="ml-5 mt-4 mb-4">レビュー投稿</h5>
-      <%= form_with model: @review_new, local: true do |f| %>
-        <table class="table-sm">
-          <tr><td>番組名</td><td><%= f.text_field :content_name %></td>
-          <tr><td>出演者</td><td><%= f.text_field :cast %></td>
-          <tr>
-            <td>性別 (出演者)</td>
-            <td>
-              <%= f.radio_button :gender, :male, checked: true %>
-              <%= f.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
-              <%= f.radio_button :gender, :female %>
-              <%= f.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
-              <%= f.radio_button :gender, :other %>
-              <%= f.label :gender, "その他", {value: :other, style: "display: inline-block;"} %>
-            </td>
-          <tr><td>レビュー(160字以内)</td><td><%= f.text_area :body %></td>
-          <tr><td></td><td><%= f.submit '投稿する', class:"btn btn-block btn-outline-primary" %></td></tr>
-        </table>
-      <% end %>
+  <h5>レビューフォーム</h5>
+  <%= form_with model: @review_new, local: true do |f| %>
+    <div class="form-group row">
+      <%= f.label :content_name, '番組名 ', class:'col-md-3 col-form-label' %>
+      <div class="col-md-9">
+        <%= f.text_field :content_name, class: "form-control",
+          placeholder:'番組名またはコンテンツ名' %>
+      </div>
     </div>
-  </div>
+
+    <div class="form-group row">
+      <%= f.label :cast, '出演者 ', class:'col-md-3 col-form-label' %>
+      <div class="col-md-9">
+        <%= f.text_field :cast, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :gender, '性別(出演者) ', class:'col-md-3 col-form-label' %>
+      <div class="col-md-9">
+        <%= f.radio_button :gender, :male, checked: true %>
+        <%= f.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
+        <%= f.radio_button :gender, :female %>
+        <%= f.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
+        <%= f.radio_button :gender, :other %>
+        <%= f.label :gender, "その他", {value: :other, style: "display: inline-block;"} %>
+      </div>
+    </div>
+
+    <div class="form-group row" id="star">
+      <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+      <%= f.hidden_field :rate, id: :review_star %>
+    </div>
+
+    <script>
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'review[rate]',
+      half: true,
+    });
+    </script>
+
+    <div class="form-group row">
+      <%= f.label :body, 'レビュー(160文字以内) ', class:'col-md-3 col-form-label' %>
+      <div class="col-md-9">
+        <%= f.text_area :body, class: "form-control", rows: "8",
+          placeholder:'ここにレビューを書きこんでください。' %>
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+      <div class="col-md-6 offset-3">
+        <%= f.submit '投稿する', class:"btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
 </div>

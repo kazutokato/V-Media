@@ -42,7 +42,7 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content_name, :cast, :gender, :body)
+    params.require(:review).permit(:content_name, :cast, :gender, :body, :rate)
   end
 
   def correct_end_user

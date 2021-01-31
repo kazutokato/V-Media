@@ -6,8 +6,8 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.string :content_name
       t.string :cast
       t.string :gender
+      t.float :rate
       t.text :body
-
       t.timestamps
     end
   end
