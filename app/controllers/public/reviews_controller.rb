@@ -21,6 +21,7 @@ class Public::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
@@ -37,6 +38,12 @@ class Public::ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:id])
+    if @review.destroy
+      redirect_to reviews_path
+    else
+      render :edit
+    end
   end
 
   private

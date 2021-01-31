@@ -1,0 +1,2 @@
+$('#comments_buttons_<%= @review.id %>').html("<%= j(render partial: 'public/comments/comment', locals: { review: @review}) %>");
+$('#comment_body').val("");
