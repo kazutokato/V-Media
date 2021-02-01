@@ -8,15 +8,16 @@
             <th></th>
             <th>投稿ユーザー</th>
             <th>番組名</th>
-            <th>評価</th>
-            <th colspan="3"></th>
+            <th>投稿者評価</th>
+            <th>リアクション</th>
+            <th colspan="2"></th>
           </tr>
         </thead>
         <tbody>
           <% @reviews.each do |review| %>
             <tr>
               <td>
-                <%= link_to end_user_path(review.end_user.id) do %>
+                <%= link_to end_user_path(review.end_user.id) do %>　
                   <%= attachment_image_tag review.end_user, :profile_image, fallback: "no_image_end_user.png", size: '30x30' %>
                 <% end %>
               </td>
@@ -40,9 +41,8 @@
                   });
                   </script>
               </td>
-              <td>
-                <p>いいね数: </p>
-              </td>
+              <td>いいね数: <%= review.favorites.count %></td>
+              <td>コメント数: <%= review.comments.count %></td>
             <tr>
           <% end %>
         <tbody>

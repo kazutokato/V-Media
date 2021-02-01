@@ -1,0 +1,9 @@
+<% if review.favorited_by?(current_end_user) %>
+  <%= link_to review_favorites_path(review.id), method: :delete, remote: true do %>
+    ♥<%= review.favorites.count %>
+  <% end %>
+<% else %>
+  <%= link_to review_favorites_path(review.id), method: :post, remote: true do %>
+    ♡<%= review.favorites.count %>
+  <% end %>
+<% end %>
