@@ -28,6 +28,27 @@
       </div>
     </div>
 
+    <div class="form-group row">
+      <%= f.label :content, '放送形式 ', class:'col-md-3 col-form-label' %>
+      <div class="col-md-6">
+        <%= f.collection_select(:medium_id, @media, :id, :content, {prompt: "選択してください"} ) %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :content, '声の特徴', class:'col-md-3 col-form-label' %>
+      <div class="col-md-6">
+        <%= f.collection_select(:content, @features, :id, :content, {prompt: "選択してください"} ) %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :content, 'ジャンル', class:'col-md-3 col-form-label' %>
+      <div class="col-md-6">
+        <%= f.collection_select(:content, @genre, :id, :content, {prompt: "選択してください"} ) %>
+      </div>
+    </div>
+
     <div class="form-group row" id="star">
       <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
       <%= f.hidden_field :rate, id: :review_star %>

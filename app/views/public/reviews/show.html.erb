@@ -27,7 +27,7 @@
             <tr>
               <td>評価</td>
               <td>
-                <div id="star-rate-<%= @review.id %>"></div>
+                <div id="star-rate-<%= @review.id %>">
                   <script>
                   $('#star-rate-<%= @review.id %>').raty({
                     size: 36,
@@ -39,6 +39,7 @@
                     score: <%= @review.rate %>,
                   });
                   </script>
+                </div>
               </td>
             </tr>
             <tr>
@@ -58,6 +59,9 @@
             <tr>
           <tbody>
         </table>
+        <div id="favorites_buttons_<%= @review.id %>">
+          <%= render partial: "public/favorites/favorite", locals: { review: @review} %>
+        </div>
         <div class="comments">
           <div id="comments_buttons_<%= @review.id %>">
             <%= render partial: 'public/comments/comment', locals: { review: @review } %>
