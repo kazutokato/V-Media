@@ -3,9 +3,6 @@ class Public::ReviewsController < ApplicationController
 
   def new
     @review_new = Review.new
-    @media = Medium.all #放送形式の情報を全て取得
-    @features = Feature.all #声の特徴の情報を全て取得
-    @genre = Genre.all #ジャンル情報を全て取得
   end
 
   def create
@@ -52,7 +49,7 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content_name, :cast, :gender, :body, :rate, :medium_id, :content)
+    params.require(:review).permit(:content_name, :cast, :gender, :body, :rate, :medium_id, :feature_id, :genre_id)
   end
 
   def correct_end_user
