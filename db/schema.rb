@@ -97,7 +97,9 @@ ActiveRecord::Schema.define(version: 2021_01_25_092353) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "end_user_id"
-    t.integer "category_id"
+    t.integer "medium_id"
+    t.integer "feature_id"
+    t.integer "genre_id"
     t.string "content_name"
     t.string "cast"
     t.string "gender"

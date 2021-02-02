@@ -25,6 +25,18 @@
               <td><%= @review.gender %></td>
             </tr>
             <tr>
+              <td>放送形式</td>
+              <td><%= @review.medium.content %></td>
+            </tr>
+            <tr>
+              <td>声質</td>
+              <td><%= @review.feature.content %></td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td><%= @review.genre.content %></td>
+            </tr>
+            <tr>
               <td>評価</td>
               <td>
                 <div id="star-rate-<%= @review.id %>">
