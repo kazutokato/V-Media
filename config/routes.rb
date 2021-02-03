@@ -37,6 +37,8 @@ Rails.application.routes.draw do
         get 'thanks'
       end
     end
+
+    resources :ranks, only: [:index]
   end
 
   namespace :admin do
