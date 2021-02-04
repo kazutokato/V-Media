@@ -11,5 +11,13 @@ class Review < ApplicationRecord
   def favorited_by?(end_user)
     favorites.where(end_user_id: end_user.id).exists?
   end
+  
+  def self.search(search)
+    if search
+      Review.where("content_name LIKE ?", "%#{search}%")
+    else
+      Review.all
+    end
+  end  
 
 end

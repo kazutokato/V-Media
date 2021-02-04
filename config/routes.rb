@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searches/search'
   devise_for :end_users, controllers: {
     registrations: 'end_users/registrations',
     sessions: 'end_users/sessions'
@@ -37,6 +38,8 @@ Rails.application.routes.draw do
         get 'thanks'
       end
     end
+
+    get 'search' => 'searches#search'
 
     resources :ranks, only: [:index]
   end
