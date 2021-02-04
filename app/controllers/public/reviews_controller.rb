@@ -16,7 +16,7 @@ class Public::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @reviews = Review.search(params[:search])
   end
 
   def show
@@ -44,6 +44,10 @@ class Public::ReviewsController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def search
+    @reviews = Review.search(params[:word])
   end
 
   private
