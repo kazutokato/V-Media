@@ -1,0 +1,64 @@
+$cWhite: white;
+$cDblue: #002846;
+$cNblue: #7097c3;
+
+.body {
+  background-color: $cDblue;
+}
+
+.header {
+  color: $cWhite;
+  padding: 30px;
+}
+
+.footer {
+  color: $cWhite;
+  text-align: center;
+  padding: 30px;
+
+  &.container {
+    display: inline-block;
+  }
+}
+
+.main {
+  background-color: $cDblue;
+  color: $cWhite;
+}
+
+
+.link-button {
+    background-color: $cNblue;
+    color: $cWhite;
+    border: 1px solid $cWhite;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin: 50px 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        color: $cNblue;
+        background-color: $cWhite;
+        transition: transform 0.3s;
+    }
+}
+
+.submit-button {
+    background-color: $cNblue;
+    color: $cWhite;
+    border: 1px solid $cWhite;
+    border-radius: 7px;
+    padding: 10px 30px;
+    margin: 50px 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        color: $cNblue;
+        background-color: $cWhite;
+        transition: transform 0.5s;
+    }
+}
