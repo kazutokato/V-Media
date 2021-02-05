@@ -8,16 +8,21 @@ class Review < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :review_categories, dependent: :destroy
 
-  def favorited_by?(end_user)
+  validates :content_name, presence: true
+  validates :cast, presence: true
+  validates :gender, presence: true
+  validates :body, presence: true, length: { maximum: 160 }
+
+  def favorited_by?(end_user) #いいね機能
     favorites.where(end_user_id: end_user.id).exists?
   end
-  
-  def self.search(search)
+
+  def self.search(search) #検索機能
     if search
-      Review.where("content_name LIKE ?", "%#{search}%")
+      Review.where("content_name LIKE ?", "%#{search}%") #番組名を部分検索
     else
       Review.all
     end
-  end  
+  end
 
 end

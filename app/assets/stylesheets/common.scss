@@ -4,6 +4,7 @@ $cNblue: #7097c3;
 
 .body {
   background-color: $cDblue;
+  font-family: 'Yusei Magic', sans-serif;
 }
 
 .header {
@@ -26,6 +27,9 @@ $cNblue: #7097c3;
   color: $cWhite;
 }
 
+.table {
+  color :$cWhite;
+}
 
 .link-button {
     background-color: $cNblue;
@@ -62,3 +66,22 @@ $cNblue: #7097c3;
         transition: transform 0.5s;
     }
 }
+
+.edit-button {
+    background-color: $cNblue;
+    color: $cWhite;
+    border: 1px solid $cWhite;
+    border-radius: 7px;
+    padding: 14px 30px;
+    margin: 50px 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        color: $cNblue;
+        background-color: $cWhite;
+        transition: transform 0.5s;
+    }
+}
+

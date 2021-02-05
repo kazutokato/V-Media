@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render 'public/reviews/error_form', review_new: @review_new %>
   <h5>レビューフォーム</h5>
   <%= form_with model: @review_new, local: true do |f| %>
     <div class="form-group row">
@@ -12,7 +13,8 @@
     <div class="form-group row">
       <%= f.label :cast, '出演者 ', class:'col-md-3 col-form-label' %>
       <div class="col-md-6">
-        <%= f.text_field :cast, class: "form-control" %>
+        <%= f.text_field :cast, class: "form-control",
+          placeholder:'コンビ名やグループ等も可' %>
       </div>
     </div>
 

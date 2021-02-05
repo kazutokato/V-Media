@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-6 offset-1">
         <h5>レビュー詳細</h5>
-        <table class="table table-borderess">
+        <table class="table">
           <tbody>
             <tr>
               <td>投稿者</td>
@@ -60,12 +60,16 @@
             </tr>
               <td>
                 <% if @review.end_user.id == current_end_user.id %>
-                  <%= link_to "編集", edit_review_path(@review.id), class:"btn btn-sm btn-success" %>
+                  <%= link_to edit_review_path(@review.id), class:"edit-button" do %>
+                    <i class="far fa-edit"></i> 編集
+                  <% end %>
                 <% end %>
               </td>
               <td>
                 <% if @review.end_user.id == current_end_user.id %>
-                  <%= link_to "削除", review_path(@review.id), method: :delete, data: { confirm: '本当に削除しますか？', cancel: 'やめる', commit: 'はい'}, title: 'レビュー削除確認', class: "btn btn-sm btn-danger" %>
+                  <%= link_to review_path(@review.id), method: :delete, data: { confirm: '本当に削除しますか？', cancel: 'やめる', commit: 'はい'}, title: 'レビュー削除確認', class: "delete-button" do %>
+                    <i class="fas fa-eraser"></i> 削除
+                  <% end %>
                 <% end %>
               </td>
             <tr>
@@ -82,7 +86,7 @@
         <div class="new-comment">
         <%= form_with(model:[@review, @comment]) do |f| %>
           <%= f.text_area :body, size: "40x3", placeholder:'ここにコメントを書いて投稿してください。(30字以内)' %>
-          <%= f.submit "送信", class:"btn btn-sm btn-success" %>
+          <%= f.submit "送信", class:"submit-button" %>
         <% end %>
         </div>
       </div>
