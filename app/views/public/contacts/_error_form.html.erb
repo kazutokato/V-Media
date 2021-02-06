@@ -1,0 +1,9 @@
+<% if contact.errors.any? %>
+  <div class = "alert">
+    <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

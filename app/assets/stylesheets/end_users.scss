@@ -2,38 +2,64 @@ $cWhite: white;
 $cDblue: #002846;
 $cNblue: #7097c3;
 
-.edit-button {
-    background-color: $cNblue;
-    color: $cWhite;
-    border: 1px solid $cWhite;
-    border-radius: 7px;
-    padding: 14px 30px;
-    margin: 50px 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
+.profile-group {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 
-    &:hover {
-        color: $cNblue;
-        background-color: $cWhite;
-        transition: transform 0.5s;
+
+.edit-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+
+  &#profile-edit {
+    th, td {
+      color: $cWhite;
+      border: none;
+      padding: 10px;
+
     }
-}    
+  }
+}
+
+.user-edit-button {
+  background-color: $cNblue;
+  color: $cWhite;
+  border: 1px solid $cWhite;
+  border-radius: 7px;
+  padding: 15px 50px;
+  margin: 50px 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $cNblue;
+    background-color: $cWhite;
+    transition: transform 0.5s;
+  }
+}
 
 .withdraw-button {
-    background-color: $cDblue;
-    color: $cWhite;
-    border: 1px solid $cWhite;
-    border-radius: 7px;
-    padding: 14px 30px;
-    margin: 50px 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
+  background-color: $cDblue;
+  color: $cWhite;
+  border: 1px solid $cWhite;
+  border-radius: 7px;
+  padding: 10px 30px;
+  margin: 50px 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
 
-    &:hover {
-        color: $cDblue;
-        background-color: $cWhite;
-        transition: transform 0.5s;
-    }
+  &:hover {
+    color: $cDblue;
+    background-color: $cWhite;
+    transition: transform 0.5s;
+  }
 }

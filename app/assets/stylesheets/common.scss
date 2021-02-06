@@ -27,9 +27,21 @@ $cNblue: #7097c3;
   color: $cWhite;
 }
 
-.table {
-  color :$cWhite;
+table {
+  border-collapse: collapse;
 }
+th, td {
+  color: $cWhite;
+  border: 1px solid $cWhite;
+  padding: 10px;
+}
+
+.alert {
+    color: $cWhite;
+    text-align: center;
+    border:2px solid $cWhite;
+    padding:12px; font-weight:600;
+  }
 
 .link-button {
     background-color: $cNblue;

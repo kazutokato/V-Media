@@ -1,15 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <h5 class="ml-5 mt-5">ユーザープロフィール</h5><br />
-      <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "no_image_end_user.png", size: "100x100" %>
-      <table class="table-sm table-bordered">
-        <tr><td class="table-active">ニックネーム</td><td><%= @end_user.nickname %></td></tr>
-        <tr><td class="table-active">自己紹介文</td><td><%= @end_user.introduction%></td></tr>
-      </table>
-      <% if @end_user.id == current_end_user.id %>
-        <%= link_to '編集する', edit_end_user_path, class:"btn btn-sm btn-outline-primary" %>
-      <% end %>
+    <div class="col-12">
+      <div class="profile-group">
+        <h5>ユーザープロフィール</h5>
+        <div id="profile-image">
+          <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "no_image_end_user.png", size: "100x100" %>
+        </div>
+        <table id="profile-table">
+          <tr><td>ニックネーム</td><td><%= @end_user.nickname %></td></tr>
+          <tr><td>自己紹介文</td><td><%= @end_user.introduction%></td></tr>
+        </table>
+      </div>
+      <div class="edit-group">
+        <% if @end_user.id == current_end_user.id %>
+          <%= link_to edit_end_user_path, class:"user-edit-button" do %>
+            <i class="far fa-edit"></i> 編集
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
