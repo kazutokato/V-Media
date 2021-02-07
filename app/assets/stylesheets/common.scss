@@ -29,11 +29,12 @@ $cNblue: #7097c3;
 
 table {
   border-collapse: collapse;
-}
-th, td {
-  color: $cWhite;
-  border: 1px solid $cWhite;
-  padding: 10px;
+
+  th, td {
+    color: $cWhite;
+    border: 1px solid $cWhite;
+    padding: 10px;
+  }
 }
 
 .alert {

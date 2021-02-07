@@ -1,17 +1,24 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-10 offset-1">
-      <% @all_ranks.each.with_index(1) do |review, i| %>
-        第 <%= i %> 位
-        <%= link_to review_path(review.id) do %>
-          <%= review.content_name %>
+    <div class="col-8 offset-2">
+      <table class="ranking">
+        <% @all_ranks.each.with_index(1) do |review, i| %>
+          <tr>
+            <td>第 <%= i %> 位</td>
+            <td>
+              <%= link_to review_path(review.id) do %>
+                <%= review.content_name %>
+              <% end %>
+            </td>
+            <td>いいね数: <%= review.favorites.count %></td>
+            <td>
+              <%= link_to end_user_path(review.end_user.id) do %>
+                <%= review.end_user.nickname %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-        いいね数: <%= review.favorites.count %>
-        <%= link_to end_user_path(review.end_user.id) do %>
-          <%= review.end_user.nickname %>
-        <% end %>
-
-      <% end %>
+      </table>
     </div>
   </div>
 </div>

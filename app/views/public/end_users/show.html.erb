@@ -1,17 +1,23 @@
 <div class="container">
+    <h5 class="user-profile">ユーザープロフィール</h5><br />
   <div class="row">
-    <div class="col-12">
+    <div class="col-2 offset-2">
       <div class="profile-group">
-        <h5>ユーザープロフィール</h5>
         <div id="profile-image">
           <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "no_image_end_user.png", size: "100x100" %>
         </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="profile-group">
         <table id="profile-table">
-          <tr><td>ニックネーム</td><td><%= @end_user.nickname %></td></tr>
+          <tr><td class="text-nowrap">ニックネーム</td><td><%= @end_user.nickname %></td></tr>
           <tr><td>自己紹介文</td><td><%= @end_user.introduction%></td></tr>
         </table>
       </div>
-      <div class="edit-group">
+    </div>
+    <div class="col-12">
+      <div class="end_user-edit-group">
         <% if @end_user.id == current_end_user.id %>
           <%= link_to edit_end_user_path, class:"user-edit-button" do %>
             <i class="far fa-edit"></i> 編集

@@ -2,19 +2,37 @@ $cWhite: white;
 $cDblue: #002846;
 $cNblue: #7097c3;
 
+h5 {
+
+  &.profile-edit {
+    margin-left: 80px;
+    margin-bottom: 30px;
+  }
+
+  &.user-profile {
+    margin-left: 180px;
+  }
+}
+
 .profile-group {
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
 }
 
-
-.edit-group {
+.end_user-edit-group {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.action-group {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+
 
 table {
 
@@ -51,7 +69,7 @@ table {
   color: $cWhite;
   border: 1px solid $cWhite;
   border-radius: 7px;
-  padding: 10px 30px;
+  padding: 14px 30px;
   margin: 50px 30px;
   font-weight: 600;
   cursor: pointer;

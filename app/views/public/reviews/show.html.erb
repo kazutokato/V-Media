@@ -1,94 +1,90 @@
 <div class="container px-5 px-sm-0">
     <div class="row">
-      <div class="col-6 offset-1">
-        <h5>レビュー詳細</h5>
-        <table class="table">
-          <tbody>
-            <tr>
-              <td>投稿者</td>
-              <td>
-                <%= link_to end_user_path(@review.end_user.id) do %>
-                  <%= @review.end_user.nickname %>
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <td>番組名</td>
-              <td><%= @review.content_name %></td>
-            </tr>
-            <tr>
-              <td>出演者</td>
-              <td><%= @review.cast %></td>
-            </tr>
-            <tr>
-              <td>性別</td>
-              <td><%= @review.gender %></td>
-            </tr>
-            <tr>
-              <td>放送形式</td>
-              <td><%= @review.medium.content %></td>
-            </tr>
-            <tr>
-              <td>声質</td>
-              <td><%= @review.feature.content %></td>
-            </tr>
-            <tr>
-              <td>ジャンル</td>
-              <td><%= @review.genre.content %></td>
-            </tr>
-            <tr>
-              <td>評価</td>
-              <td>
-                <div id="star-rate-<%= @review.id %>">
-                  <script>
-                  $('#star-rate-<%= @review.id %>').raty({
-                    size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    score: <%= @review.rate %>,
-                  });
-                  </script>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-nowrap">レビュー　</td>
-              <td><%= @review.body %></td>
-            </tr>
-              <td>
-                <% if @review.end_user.id == current_end_user.id %>
-                  <%= link_to edit_review_path(@review.id), class:"edit-button" do %>
-                    <i class="far fa-edit"></i> 編集
+      <div class="col-8 offset-2">
+        <h5>レビュー詳細</h5><br />
+          <table>
+            <tbody>
+              <tr>
+                <td>投稿者</td>
+                <td>
+                  <%= link_to end_user_path(@review.end_user.id) do %>
+                    <%= @review.end_user.nickname %>
                   <% end %>
-                <% end %>
-              </td>
-              <td>
-                <% if @review.end_user.id == current_end_user.id %>
-                  <%= link_to review_path(@review.id), method: :delete, data: { confirm: '本当に削除しますか？', cancel: 'やめる', commit: 'はい'}, title: 'レビュー削除確認', class: "delete-button" do %>
-                    <i class="fas fa-eraser"></i> 削除
-                  <% end %>
-                <% end %>
-              </td>
-            <tr>
-          <tbody>
-        </table>
-        <div id="favorites_buttons_<%= @review.id %>">
-          <%= render partial: "public/favorites/favorite", locals: { review: @review} %>
-        </div>
-        <div class="comments">
-          <div id="comments_buttons_<%= @review.id %>">
-            <%= render partial: 'public/comments/comment', locals: { review: @review } %>
+                </td>
+              </tr>
+              <tr>
+                <td>番組名</td>
+                <td><%= @review.content_name %></td>
+              </tr>
+              <tr>
+                <td>出演者</td>
+                <td><%= @review.cast %></td>
+              </tr>
+              <tr>
+                <td>性別</td>
+                <td><%= @review.gender %></td>
+              </tr>
+              <tr>
+                <td>放送形式</td>
+                <td><%= @review.medium.content %></td>
+              </tr>
+              <tr>
+                <td>声質</td>
+                <td><%= @review.feature.content %></td>
+              </tr>
+              <tr>
+                <td>ジャンル</td>
+                <td><%= @review.genre.content %></td>
+              </tr>
+              <tr>
+                <td>評価</td>
+                <td>
+                  <div id="star-rate-<%= @review.id %>">
+                    <script>
+                    $('#star-rate-<%= @review.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: <%= @review.rate %>,
+                    });
+                    </script>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-nowrap">レビュー　</td>
+                <td><%= @review.body %></td>
+              </tr>
+            <tbody>
+          </table><br />
+          <div>
+            <% if @review.end_user.id == current_end_user.id %>
+              <%= link_to edit_review_path(@review.id), class:"edit-button" do %>
+                <i class="far fa-edit"></i> 編集
+              <% end %>
+            <% end %>
+            <% if @review.end_user.id == current_end_user.id %>
+              <%= link_to review_path(@review.id), method: :delete, data: { confirm: '本当に削除しますか？', cancel: 'やめる', commit: 'はい'}, title: 'レビュー削除確認', class: "delete-button" do %>
+                <i class="fas fa-eraser"></i> 削除
+              <% end %>
+            <% end %>
+          </div><br />
+          <div id="favorites_buttons_<%= @review.id %>">
+            <%= render partial: "public/favorites/favorite", locals: { review: @review} %>
+          </div><br />
+          <h6>コメント一覧  (<%= @review.comments.count %>件)</h6>
+            <div id="comments_buttons_<%= @review.id %>">
+              <%= render partial: 'public/comments/comment', locals: { review: @review } %>
+            </div><br />
+          <div>
+            <%= form_with(model:[@review, @comment]) do |f| %>
+              <%= f.text_area :body, size: "45x2", placeholder:'ここにコメントを書いて投稿してください。(40字以内)' %>
+              <%= f.submit "送信", class:"submit-button" %>
+            <% end %>
           </div>
-        </div>
-        <div class="new-comment">
-        <%= form_with(model:[@review, @comment]) do |f| %>
-          <%= f.text_area :body, size: "40x3", placeholder:'ここにコメントを書いて投稿してください。(60字以内)' %>
-          <%= f.submit "送信", class:"submit-button" %>
-        <% end %>
-        </div>
       </div>
     </div>
   </div>
