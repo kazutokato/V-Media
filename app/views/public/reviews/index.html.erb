@@ -1,21 +1,23 @@
 <div class="container px-5 px-sm-0">
-  <%= form_with url: reviews_path, method: :get, local: :ture do |f| %>
-    <!--<%= f.select :range, options_for_select([['声質']], [['ジャンル']]) %>-->
-    <%= f.text_field :search, placeholder: "番組名を入力" %>
-    <%= f.submit "検索", class: "btn" %>
-  <% end %>
   <div class="row">
     <div class="col-10 offset-1">
-      <h5>レビュー 一覧</h5>
+      <div class="search-form">
+        <%= form_with url: reviews_path, method: :get, local: :ture do |f| %>
+          <!--<%= f.select :range, options_for_select([['声質']], [['ジャンル']]) %>-->
+          <%= f.text_field :search, placeholder: "番組名を入力" %>
+          <%= f.submit "検索", class: "search-button" %>
+        <% end %>
+      </div>
+      <h5>レビュー 一覧</h5><br>
+
       <table class="table table-inverse">
-        <thead>
+        <thead class="text-center">
           <tr>
             <th></th>
-            <th>投稿ユーザー</th>
-            <th>番組名</th>
-            <th>投稿者評価</th>
-            <th>リアクション</th>
-            <th colspan="2"></th>
+            <th>投稿 ユーザー</th>
+            <th>番 組 名</th>
+            <th>投 稿 者 評 価</th>
+            <th colspan="2">リ ア ク シ ョ ン</th>
           </tr>
         </thead>
         <tbody>

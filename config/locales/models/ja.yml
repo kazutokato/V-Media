@@ -1,0 +1,37 @@
+ja:
+  activerecord:
+    models:
+      end_user: ユーザー
+      review: レビュー
+      medium: 放送形式
+      feature: 声質
+      genre: ジャンル
+      contact: お問い合わせ
+    attributes:
+      end_user:
+        last_name: 性
+        first_name: 名
+        gender: 性別
+        age: 年齢
+        prefecture: 都道府県
+        profile_image: プロフィール画像
+        introduction: 自己紹介
+        nickname: ユーザーネーム
+        encrypted_password: パスワード
+        email: メールアドレス
+      review:
+        content_name: 番組名
+        cast: 出演者
+        gender: 性別
+        rate: レート
+        body: レビュー
+      medium:
+        content: 放送形式
+      feature:
+        content: 声質
+      genre:
+        content: ジャンル
+      contact:
+        email: メールアドレス
+        name: 名前
+        body: お問い合わせ内容

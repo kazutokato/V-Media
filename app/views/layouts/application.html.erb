@@ -14,92 +14,92 @@
       <nav class="navbar navbar-expand-lg navbar-info bg-active">
         <div class="container">
           <a class="navbar-brand p-3" href="/"><%= image_tag 'v_media.logo.png', size: '150x50' %></a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto">
-                  <% if end_user_signed_in? %>
-                    <li class="nav-item">
-                      <%= link_to reviews_path, class:"link-button" do  %>
-                        <i class="fas fa-search-plus"></i> レビュー検索
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to end_user_path(current_end_user.id), class:"link-button" do %>
-                        <i class="fas fa-address-card"></i> マイページ
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to new_review_path, class:"link-button" do %>
-                        <i class="fas fa-pen-fancy"></i> 新規投稿
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to new_contact_path, class:"link-button" do %>
-                        <i class="fas fa-envelope"></i> お問い合わせ
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to destroy_end_user_session_path, method: :delete, class:"link-button" do %>
-                        <i class="fas fa-sign-out-alt"></i> ログアウト
-                      <% end %>
-                    </li>
-                  <% elsif admin_signed_in? %>
-                    <li class="nav-item">
-                      <%= link_to admin_reviews_path, class:"link-button" do %>
-                        <i class="fas fa-align-left"></i> レビュー 一覧
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to admin_end_users_path, class:"link-button" do %>
-                        <i class="fas fa-user-friends"></i> ユーザー 一覧
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to admin_contacts_path, class:"link-button" do %>
-                        <i class="fas fa-envelope"></i> お問い合わせ一覧
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to admin_review_categories_path, class:"link-button" do %>
-                        <i class="fas fa-mars-stroke"></i>カテゴリー追加
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to destroy_admin_session_path, method: :delete, class:"link-button" do %>
-                        <i class="fas fa-sign-out-alt"></i> ログアウト
-                      <% end %>
-                    </li>
-                  <% else %>
-                    <li class="nav-item">
-                      <%= link_to ranks_path, class:"link-button" do  %>
-                        <i class="fas fa-crown"></i> ランキング
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to reviews_path, class:"link-button" do  %>
-                        <i class="fas fa-search-plus"></i> レビュー検索
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to new_contact_path, class:"link-button" do %>
-                        <i class="fas fa-envelope"></i> お問い合わせ
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to new_end_user_registration_path, class:"link-button" do %>
-                        <i class="fas fa-user-plus"></i> 新規登録
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to end_user_session_path, method: :post, class:"link-button" do %>
-                        <i class="fas fa-sign-in-alt"></i> ログイン
-                      <% end %>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                <% if end_user_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to reviews_path, class:"link-button" do  %>
+                      <i class="fas fa-search-plus"></i> レビュー検索
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to end_user_path(current_end_user.id), class:"link-button" do %>
+                      <i class="fas fa-address-card"></i> マイページ
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to new_review_path, class:"link-button" do %>
+                      <i class="fas fa-pen-fancy"></i> 新規投稿
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to new_contact_path, class:"link-button" do %>
+                      <i class="fas fa-envelope"></i> お問い合わせ
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to destroy_end_user_session_path, method: :delete, class:"link-button" do %>
+                      <i class="fas fa-sign-out-alt"></i> ログアウト
+                    <% end %>
+                  </li>
+                <% elsif admin_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to admin_reviews_path, class:"link-button" do %>
+                      <i class="fas fa-align-left"></i> レビュー 一覧
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to admin_end_users_path, class:"link-button" do %>
+                      <i class="fas fa-user-friends"></i> ユーザー 一覧
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to admin_contacts_path, class:"link-button" do %>
+                      <i class="fas fa-envelope"></i> お問い合わせ一覧
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to admin_review_categories_path, class:"link-button" do %>
+                      <i class="fas fa-mars-stroke"></i>カテゴリー追加
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to destroy_admin_session_path, method: :delete, class:"link-button" do %>
+                      <i class="fas fa-sign-out-alt"></i> ログアウト
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li class="nav-item">
+                    <%= link_to ranks_path, class:"link-button" do  %>
+                      <i class="fas fa-crown"></i> ランキング
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to reviews_path, class:"link-button" do  %>
+                      <i class="fas fa-search-plus"></i> レビュー検索
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to new_contact_path, class:"link-button" do %>
+                      <i class="fas fa-envelope"></i> お問い合わせ
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to new_end_user_registration_path, class:"link-button" do %>
+                      <i class="fas fa-user-plus"></i> 新規登録
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to end_user_session_path, method: :post, class:"link-button" do %>
+                      <i class="fas fa-sign-in-alt"></i> ログイン
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
         </div>
       </nav>
     </header>

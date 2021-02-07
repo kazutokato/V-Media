@@ -1,11 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 col-offset-2">
-      <h5 class="ml-5 mt-5 mr-0 mb-3">新規会員登録</h5>
+    <div class="col-8 offset-2">
+      <h5 class="new-registration">新規会員登録</h5>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
       <%= render "end_users/shared/error_messages", resource: resource %>
-      <table class="table">
+
+      <table class="registration-table">
         <tr>
           <td>名前　　　　　　　　(姓)　</td>
           <td><%= f.text_field :last_name, autofocus: true %></td>
@@ -40,14 +41,14 @@
 
         <tr>
           <td></td>
-          <td><%= f.submit "新規登録", class:"btn btn-outline-success btn-block" %></td><br />
+          <td><%= f.submit "新規登録", class:"submit-button" %></td><br />
         </tr>
       </table>
       <% end %>
 
-      <h5 class="mt-5">既に登録済みの方</h5>
-        <div><%= link_to 'こちら', new_end_user_session_path %>　からログインしてください。</div>
-      <div>または<%= link_to 'こちら', end_users_guest_sign_in_path, method: :post %>　からゲストユーザーとしてログインできます。</div>
+      <h5 class="new-registration">既に登録済みの方</h5>
+        <div><%= link_to 'こちら', new_end_user_session_path %> からログインしてください。</div><br />
+      <div>または <%= link_to 'こちら', end_users_guest_sign_in_path, method: :post %> からゲストユーザーとしてログインできます。</div>
     </div>
   </div>
 </div>

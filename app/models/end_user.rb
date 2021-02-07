@@ -12,7 +12,6 @@ class EndUser < ApplicationRecord
 
   validates :last_name, presence: true, length: { maximum: 10 }
   validates :first_name, presence: true, length: { maximum: 10 }
-  validates :gender, presence: true
   validates :prefecture, presence: true, length: { maximum: 4 }
   validates :age, presence: true, numericality: {only_integer: true}
   validates :nickname, presence: true, uniqueness: true

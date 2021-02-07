@@ -1,4 +1,4 @@
-<table class="table">
+<table class="comments-index">
   <tbody>
     <% @review.comments.each do |comment| %>
       <tr>
@@ -10,7 +10,7 @@
         <td>
           <% if comment.end_user == current_end_user %>
             <div class="comment-delete">
-              <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
+              <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, class: "delete-button" %>
             </div>
           <% end %>
         </td>
