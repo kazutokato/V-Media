@@ -1,2 +1,15 @@
-<h1>Admin::Contacts#show</h1>
-<p>Find me in app/views/admin/contacts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h5>お問い合わせ詳細</h5><br>
+      <table>
+        <tbody>
+          <tr><td>お名前</td><td><%= @contact.name %></td></tr>
+          <tr><td>メールアドレス</td><td><%= @contact.email %></td></tr>
+          <tr><td>お問い合わせ日時</td><td><%= @contact.created_at.strftime('%Y/%m/%d') %></td></tr>
+          <tr><td>お問い合わせ内容</td><td><%= @contact.body %></td></tr>
+        <tbody>
+      </table>
+    </div>
+  </div>
+</div>

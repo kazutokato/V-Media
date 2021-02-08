@@ -1,2 +1,29 @@
-<h1>Admin::Contacts#index</h1>
-<p>Find me in app/views/admin/contacts/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h5>お問い合わせ一覧</h5><br>
+      <table>
+        <thead class="text-center">
+          <tr>
+            <th>お名前</th>
+            <th>メールアドレス</th>
+            <th>お問い合わせ日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @contacts.each do |contact| %>
+            <tr>
+              <td><%= contact.name %></td>
+              <td><%= contact.email %></td>
+              <td>
+                <%= link_to admin_contact_path(contact.id) do %>
+                  <%= contact.created_at.strftime('%Y/%m/%d') %>
+                <% end %>
+              </td>
+            <tr>
+          <% end %>
+        <tbody>
+      </table>
+    </div>
+  </div>
+</div>
