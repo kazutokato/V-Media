@@ -1,0 +1,18 @@
+<table class="comments-index">
+  <tbody>
+    <% @review.comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= attachment_image_tag comment.end_user, :profile_image, fallback: "no_image_end_user.png", size: '30x30' %><br>
+        </td>
+        <td><%= comment.end_user.nickname %></td>
+        <td><%= comment.body %></td>
+        <td>
+          <div class="comment-delete">
+            <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, class: "delete-button" %>
+          </div>
+        </td>
+      <tr>
+    <% end %>
+  <tbody>
+</table>

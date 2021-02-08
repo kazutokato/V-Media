@@ -24,9 +24,6 @@ class Public::EndUsersController < ApplicationController
     redirect_to root_path #指定されたrootへのpath
   end
 
-  def thanks
-  end
-
   private
 
   def end_user_params
