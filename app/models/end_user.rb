@@ -14,7 +14,7 @@ class EndUser < ApplicationRecord
   validates :first_name, presence: true, length: { maximum: 10 }
   validates :prefecture, presence: true, length: { maximum: 4 }
   validates :age, presence: true, numericality: {only_integer: true}
-  validates :nickname, presence: true, uniqueness: true
+  validates :nickname, presence: true, uniqueness: true, length: { maximum: 8 }
   validates :introduction, length: { maximum: 60 }
 
   enum is_active: {Available: true, Invalid: false} #有効会員はtrue、退会済み会員はfalse

@@ -75,7 +75,6 @@
           <div id="favorites_buttons_<%= @review.id %>">
             <%= render partial: "public/favorites/favorite", locals: { review: @review} %>
           </div><br />
-          <h6>コメント一覧  (<%= @review.comments.count %>件)</h6>
             <div id="comments_buttons_<%= @review.id %>">
               <%= render partial: 'public/comments/comment', locals: { review: @review } %>
             </div><br />
