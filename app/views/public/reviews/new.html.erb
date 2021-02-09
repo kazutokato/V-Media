@@ -1,7 +1,13 @@
 <div class="container">
-  <%= render 'public/reviews/error_form', review_new: @review_new %>
-  <div class="col-md-8 offset-2">
-    <h5>レビューフォーム</h5><br />
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <%= render 'public/reviews/error_form', review_new: @review_new %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 offset-md-2">
+      <h5>レビューフォーム</h5><br />
+    </div>
   </div>
   <%= form_with model: @review_new, local: true do |f| %>
     <div class="form-group row">

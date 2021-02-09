@@ -1,2 +1,6 @@
-$('#comments_buttons_<%= @review.id %>').html("<%= j(render partial: 'public/comments/comment', locals: { review: @review}) %>");
-$('#comment_body').val("");
+<% if @comment.errors.any? %>
+  $('#comments_buttons_<%= @review.id %>').html("<%= j(render partial: 'public/comments/error_form', locals: { review: @review}) %>");
+<% else %>
+  $('#comments_buttons_<%= @review.id %>').html("<%= j(render partial: 'public/comments/comment', locals: { review: @review}) %>");
+  $('#comment_body').val("");
+<% end %>

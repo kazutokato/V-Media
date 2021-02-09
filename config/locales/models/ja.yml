@@ -7,6 +7,7 @@ ja:
       feature: 声質
       genre: ジャンル
       contact: お問い合わせ
+      comment: コメント
     attributes:
       end_user:
         last_name: 性
@@ -35,3 +36,5 @@ ja:
         email: メールアドレス
         name: 名前
         body: お問い合わせ内容
+      comment:
+        body: コメント

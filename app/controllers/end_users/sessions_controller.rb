@@ -31,6 +31,6 @@ class EndUsers::SessionsController < Devise::SessionsController
       end_user.password = SecureRandom.urlsafe_base64
     end
     sign_in end_user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました'
+    redirect_to root_path
   end
 end

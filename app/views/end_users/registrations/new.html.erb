@@ -13,7 +13,7 @@
           <td>(名)　　<%= f.text_field :first_name, autofocus: true %></td>
         </tr>
         <tr>
-          <td>年齢</td><td><%= f.text_field :age, autofocus: true %></td>
+          <td>年齢</td><td><%= f.text_field :age, autofocus: true, placeholder:"半角数字で入力" %></td>
         </tr>
         <tr>
           <td>性別</td>
@@ -24,7 +24,7 @@
           <td colspan="2"><%= f.text_field :prefecture, autofocus: true %></td>
         </tr>
         <tr>
-          <td>ニックネーム</td><td><%= f.text_field :nickname, autofocus: true %></td>
+          <td>ユーザーネーム</td><td><%= f.text_field :nickname, autofocus: true, placeholder:"最大8文字" %></td>
         </tr>
        <tr>
           <td>メールアドレス</td>

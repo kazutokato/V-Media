@@ -1,4 +1,5 @@
 class Public::ReviewsController < ApplicationController
+  before_action :authenticate_end_user!, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :correct_end_user, only: [:edit, :update] #投稿したユーザーのみ、編集が可能。
 
   def new
@@ -45,7 +46,7 @@ class Public::ReviewsController < ApplicationController
       render :edit
     end
   end
-  
+
   def search
     @reviews = Review.search(params[:word])
   end

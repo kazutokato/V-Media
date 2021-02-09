@@ -1,9 +1,9 @@
 class Review < ApplicationRecord
 
   belongs_to :end_user
-  belongs_to :medium
-  belongs_to :feature
-  belongs_to :genre
+  belongs_to :medium, optional: true
+  belongs_to :feature, optional: true
+  belongs_to :genre, optional: true
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :review_categories, dependent: :destroy
@@ -16,14 +16,14 @@ class Review < ApplicationRecord
   def favorited_by?(end_user) #いいね機能
     favorites.where(end_user_id: end_user.id).exists?
   end
-  
+
   def self.search(search)
     if search
       Review.where("content_name LIKE ?", "%#{search}%")
     else
       Review.all
     end
-  end  
+  end
 
   def self.search(search) #検索機能
     if search
