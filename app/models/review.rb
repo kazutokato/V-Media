@@ -1,9 +1,9 @@
 class Review < ApplicationRecord
 
   belongs_to :end_user
-  belongs_to :medium, optional: true
-  belongs_to :feature, optional: true
-  belongs_to :genre, optional: true
+  belongs_to :medium
+  belongs_to :feature
+  belongs_to :genre
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :review_categories, dependent: :destroy

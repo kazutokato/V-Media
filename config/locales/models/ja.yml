@@ -28,10 +28,13 @@ ja:
         body: レビュー
       medium:
         content: 放送形式
+        id: 放送形式
       feature:
         content: 声質
+        id: 声質
       genre:
         content: ジャンル
+        id: ジャンル
       contact:
         email: メールアドレス
         name: 名前
