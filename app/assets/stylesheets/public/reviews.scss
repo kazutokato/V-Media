@@ -1,0 +1,94 @@
+$cWhite: white;
+$cDblue: #002846;
+$cNblue: #7097c3;
+
+.search-form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.review-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+
+  &.comments-index {
+    th, td {
+      color: $cWhite;
+      border: none;
+      padding: 10px;
+      text: wrap;
+      font-size: 13px;
+    }
+  }
+}
+
+.review-form {
+  margin-top: 6px;
+}
+
+.review-new-comment {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search-button {
+    background-color: $cNblue;
+    color: $cWhite;
+    border: 1px solid $cWhite;
+    border-radius: 7px;
+    padding: 2px 10px;
+    margin: 50px 0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        color: $cNblue;
+        background-color: $cWhite;
+        transition: transform 0.5s;
+    }
+}
+
+
+.delete-button {
+    background-color: $cDblue;
+    color: $cWhite;
+    border: 1px solid $cWhite;
+    border-radius: 7px;
+    padding: 14px 20px;
+    margin: 50px 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        color: $cDblue;
+        background-color: $cWhite;
+        transition: transform 0.5s;
+    }
+}
+
+.comments-delete-button {
+    background-color: $cDblue;
+    color: $cWhite;
+    border: 1px solid $cWhite;
+    border-radius: 7px;
+    padding: 10px 15px;
+    margin: 0px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        color: $cDblue;
+        background-color: $cWhite;
+        transition: transform 0.5s;
+    }
+}

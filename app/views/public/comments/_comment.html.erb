@@ -1,0 +1,48 @@
+<h6>コメント一覧  (<%= @review.comments.count %>件)</h6><br />
+  <table class="comments-index">
+    <% @review.comments.first(2).each do |comment| %>
+      <tbody>
+        <tr>
+          <td>
+            <%= attachment_image_tag comment.end_user, :profile_image, fallback: "no_image_end_user.png", size: '30x30' %><br>
+          </td>
+          <td><%= comment.end_user.nickname %></td>
+          <td><%= comment.body %></td>
+          <td>
+            <% if comment.end_user == current_end_user %>
+              <div class="comment-delete">
+                <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, class: "delete-button" %>
+              </div>
+            <% end %>
+          </td>
+        <tr>
+      <tbody>
+    <% end %>
+  </table>
+<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">and more...</h6><br />
+<div class="collapse" id="collapseExample">
+  <table class="comments-index">
+    <% @review.comments.offset(2).each do |comment| %>
+      <tbody>
+          <tr>
+            <td>
+              <%= attachment_image_tag comment.end_user, :profile_image, fallback: "no_image_end_user.png", size: '30x30' %><br>
+            </td>
+            <td><%= comment.end_user.nickname %></td>
+            <td><%= comment.body %></td>
+            <td>
+              <% if comment.end_user == current_end_user %>
+                <div class="comment-delete">
+                  <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, class: "delete-button" %>
+                </div>
+              <% end %>
+            </td>
+          <tr>
+      <tbody>
+    <% end %>
+  </table>
+</div>
+
+<% flash.each do |message_type, message| %>
+  <%= message %>
+<% end %>

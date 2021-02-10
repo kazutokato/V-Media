@@ -1,2 +1,58 @@
-<h1>Reviews#index</h1>
-<p>Find me in app/views/reviews/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <div class="search-form">
+        <%= form_with url: reviews_path, method: :get, local: :ture do |f| %>
+          <!--<%= f.select :range, options_for_select([['声質']], [['ジャンル']]) %>-->
+          <%= f.text_field :search, placeholder: "番組名を入力" %>
+          <%= f.submit "検索", class: "search-button" %>
+        <% end %>
+      </div>
+      <h5>レビュー 一覧</h5><br>
+      <table class="table table-inverse">
+        <thead class="text-center">
+          <tr>
+            <th></th>
+            <th>投稿 ユーザー</th>
+            <th>番 組 名</th>
+            <th>投 稿 者 評 価</th>
+            <th colspan="2">リ ア ク シ ョ ン</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td>
+                <%= link_to end_user_path(review.end_user.id) do %>
+                  <%= attachment_image_tag review.end_user, :profile_image, fallback: "no_image_end_user.png", size: '30x30' %>
+                <% end %>
+              </td>
+              <td><%= review.end_user.nickname %></td>
+              <td>
+                <%= link_to review_path(review.id) do %>
+                  <%= review.content_name %>
+                <% end %>
+              </td>
+              <td>
+                <div id="star-rate-<%= review.id %>"></div>
+                  <script>
+                  $('#star-rate-<%= review.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: <%= review.rate %>,
+                  });
+                  </script>
+              </td>
+              <td>いいね数: <%= review.favorites.count %></td>
+              <td>コメント数: <%= review.comments.count %></td>
+            <tr>
+          <% end %>
+        <tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searches/search'
   devise_for :end_users, controllers: {
     registrations: 'end_users/registrations',
     sessions: 'end_users/sessions'
@@ -22,14 +23,12 @@ Rails.application.routes.draw do
     resources :end_users, only: [:show, :edit, :update] do
       member do
         patch 'withdraw'
-        get 'thanks'
       end
     end
 
     resources :reviews do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
-      resources :rates, only: [:create, :update]
       resources :review_categories, only: [:create, :destroy]
     end
 
@@ -39,6 +38,10 @@ Rails.application.routes.draw do
         get 'thanks'
       end
     end
+
+    get 'search' => 'searches#search'
+
+    resources :ranks, only: [:index]
   end
 
   namespace :admin do

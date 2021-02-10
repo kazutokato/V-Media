@@ -9,8 +9,11 @@ class Public::EndUsersController < ApplicationController
 
   def update
     @end_user = EndUser.find(params[:id])
-    @end_user.update(end_user_params)
-    redirect_to end_user_path(@end_user.id)
+    if @end_user.update(end_user_params)
+      redirect_to end_user_path(@end_user.id)
+    else
+      render :edit
+    end
   end
 
   def withdraw
@@ -19,9 +22,6 @@ class Public::EndUsersController < ApplicationController
     reset_session #sessionIDのresetを行う
     flash[:notice] = "ありがとうございました。またのご利用をお待ちしております。"
     redirect_to root_path #指定されたrootへのpath
-  end
-
-  def thanks
   end
 
   private

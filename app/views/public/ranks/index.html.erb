@@ -1,2 +1,24 @@
-<h1>Ranks#index</h1>
-<p>Find me in app/views/ranks/index.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <table class="ranking">
+        <% @all_ranks.each.with_index(1) do |review, i| %>
+          <tr>
+            <td>第 <%= i %> 位</td>
+            <td>
+              <%= link_to review_path(review.id) do %>
+                <%= review.content_name %>
+              <% end %>
+            </td>
+            <td>いいね数: <%= review.favorites.count %></td>
+            <td>
+              <%= link_to end_user_path(review.end_user.id) do %>
+                <%= review.end_user.nickname %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

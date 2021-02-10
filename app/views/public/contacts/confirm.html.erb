@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h5 class=contact-confirm>お問い合わせ内容確認</h5>
+      <table class="contact-confirm">
+        <tr><td>お名前</td><td><%= @contact.name %></td>
+        <tr><td>E-mail</td><td><%= @contact.email %></td>
+        <tr><td>お問い合わせ内容</td><td><%= @contact.body %></td>
+      <%= form_with model: @contact, local: true do |f| %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :body %>
+        <tr class="text-center"><td colspan="2"><%= f.submit '確認して送信する', class:"submit-button" %></td></tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,59 @@
-<h1>Admin::Reviews#show</h1>
-<p>Find me in app/views/admin/reviews/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-8 offset-2">
+        <h5>レビュー詳細</h5><br />
+          <table>
+            <tbody>
+              <tr>
+                <td>レビューID</td>
+                <td><%= @review.id %></td>
+              </tr>
+              <tr>
+                <td>投稿者</td>
+                <td>
+                  <%= link_to end_user_path(@review.end_user.id) do %>
+                    <%= @review.end_user.nickname %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>番組名</td>
+                <td><%= @review.content_name %></td>
+              </tr>
+              <tr>
+                <td>出演者</td>
+                <td><%= @review.cast %></td>
+              </tr>
+              <tr>
+                <td>放送形式</td>
+                <td><%= @review.medium.content %></td>
+              </tr>
+              <tr>
+                <td>声質</td>
+                <td><%= @review.feature.content %></td>
+              </tr>
+              <tr>
+                <td>ジャンル</td>
+                <td><%= @review.genre.content %></td>
+              </tr>
+              <tr>
+                <td class="text-nowrap">レビュー　</td>
+                <td><%= @review.body %></td>
+              </tr>
+            <tbody>
+          </table><br />
+          <div>
+            <%= link_to admin_review_path(@review.id), method: :delete, data: { confirm: 'この投稿を不適切な投稿と判断し、削除します。', cancel: 'やめる', commit: 'はい'}, title: 'レビュー削除確認', class: "delete-button" do %>
+              <i class="fas fa-eraser"></i> このレビューを削除
+            <% end %>
+          </div><br />
+          <h6>コメント一覧  (<%= @review.comments.count %>件)</h6>
+            <div id="comments_buttons_<%= @review.id %>">
+              <%= render partial: 'admin/comments/comment', locals: { review: @review } %>
+            </div><br />
+          <div>
+          </div>
+      </div>
+    </div>
+  </div>
+<div>

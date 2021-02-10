@@ -1,2 +1,34 @@
-<h1>Admin::EndUsers#show</h1>
-<p>Find me in app/views/admin/end_users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h5 class="user-profile">ユーザープロフィール</h5><br />
+      <div class="profile-group">
+        <table id="profile-table">
+          <tr><td>ユーザーID</td><td><%= @end_user.id%></td></tr>
+          <tr><td>ユーザーネーム</td><td><%= @end_user.nickname %></td></tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td>
+              <% if @end_user.is_active == "Available" %>
+                有効ユーザー
+              <% elsif @end_user.is_active == "Invalid" %>
+                無効ユーザー
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div><br />
+      <div class="end_user-edit-group">
+        <%= form_with model: @end_user, url: admin_end_user_path, local:true do |f| %>
+          <div class="end_user-status-group">
+            <%= f.radio_button :is_active, "Available" %>有効ユーザー
+            <%= f.radio_button :is_active, "Invalid" %>無効ユーザー
+          </div>
+          <div class="edit-group">
+            <%= f.submit '会員ステータス切り替え', class:"status-button" %></td>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,25 @@
 // Place all the styles related to the admin::end_users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$cWhite: white;
+$cDblue: #002846;
+$cNblue: #7097c3;
+
+.status-button {
+  background-color: $cDblue;
+  color: $cWhite;
+  border: 1px solid $cWhite;
+  border-radius: 7px;
+  padding: 10px 20px;
+  margin: 40px 0px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $cDblue;
+    background-color: $cWhite;
+    transition: transform 0.5s;
+  }
+}

@@ -1,2 +1,101 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <%= render 'public/reviews/error_form', review_new: @review_new %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 offset-md-2">
+      <h5>レビューフォーム</h5><br />
+    </div>
+  </div>
+  <%= form_with model: @review_new, local: true do |f| %>
+    <div class="form-group row">
+      <%= f.label :content_name, '番組名 ', class:'col-md-3 offset-md-2 col-form-label' %>
+      <div class="col-md-5">
+        <%= f.text_field :content_name, class: "form-control",
+          placeholder:'番組名またはコンテンツ名' %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :cast, '出演者 ', class:'col-md-3 offset-md-2 col-form-label' %>
+      <div class="col-md-5">
+        <%= f.text_field :cast, class: "form-control",
+          placeholder:'コンビ名やグループ等も可' %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :gender, '性別(出演者) ', class:'col-md-3 offset-md-2 col-form-label' %>
+      <div class="col-md-5">
+        <div class="review-form">
+          <%= f.radio_button :gender, :"男性", checked: true %>
+          <%= f.label :gender, "男性", {value: :"男性", style: "display: inline-block;"} %>
+          <%= f.radio_button :gender, :"女性" %>
+          <%= f.label :gender, "女性", {value: :"女性", style: "display: inline-block;"} %>
+          <%= f.radio_button :gender, :"その他" %>
+          <%= f.label :gender, "その他", {value: :"その他", style: "display: inline-block;"} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :content, '放送形式 ', class:'col-md-3 offset-md-2 col-form-label' %>
+      <div class="col-md-5">
+        <div class="review-form">
+          <%= f.collection_select(:medium_id, Medium.all, :id, :content, {prompt: "選択してください"} ) %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :content, '声の特徴', class:'col-md-3 offset-md-2 col-form-label' %>
+      <div class="col-md-5">
+        <div class="review-form">
+          <%= f.collection_select(:feature_id, Feature.all, :id, :content, {prompt: "選択してください"} ) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :content, 'ジャンル', class:'col-md-3 offset-md-2 col-form-label' %>
+      <div class="col-md-5">
+        <div class="review-form">
+          <%= f.collection_select(:genre_id, Genre.all, :id, :content, {prompt: "選択してください"} ) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row" id="star">
+      <%= f.label :rate,'評価 ', class:'col-md-3 offset-md-2 col-form-label' %>
+      <%= f.hidden_field :rate, id: :review_star %>
+    </div>
+
+    <script>
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      score: 3,
+      scoreName: 'review[rate]',
+      half: true,
+    });
+    </script>
+
+    <div class="form-group row">
+      <%= f.label :body, 'レビュー', class:'col-md-3 offset-md-2 col-form-label' %>
+      <div class="col-md-5">
+        <%= f.text_area :body, class: "form-control", rows: "5",
+          placeholder:'ここにレビューを書きこんでください。(160字以内)' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 offset-md-2 col-form-label"></div>
+      <div class="col-md-5">
+        <%= f.submit '投稿する', class:"submit-button " %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,83 @@
+$cWhite: white;
+$cDblue: #002846;
+$cNblue: #7097c3;
+
+h5 {
+
+  &.profile-edit {
+    margin-left: 80px;
+    margin-bottom: 30px;
+  }
+
+  &.user-profile {
+    margin-left: 180px;
+  }
+}
+
+.profile-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.end_user-edit-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-group {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+
+
+table {
+
+  &#profile-edit {
+    th, td {
+      color: $cWhite;
+      border: none;
+      padding: 10px;
+
+    }
+  }
+}
+
+.user-edit-button {
+  background-color: $cNblue;
+  color: $cWhite;
+  border: 1px solid $cWhite;
+  border-radius: 7px;
+  padding: 15px 50px;
+  margin: 50px 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $cNblue;
+    background-color: $cWhite;
+    transition: transform 0.5s;
+  }
+}
+
+.withdraw-button {
+  background-color: $cDblue;
+  color: $cWhite;
+  border: 1px solid $cWhite;
+  border-radius: 7px;
+  padding: 14px 30px;
+  margin: 50px 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $cDblue;
+    background-color: $cWhite;
+    transition: transform 0.5s;
+  }
+}

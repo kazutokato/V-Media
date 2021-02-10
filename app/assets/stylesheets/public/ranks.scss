@@ -1,0 +1,17 @@
+$cWhite: white;
+$cDblue: #002846;
+$cNblue: #7097c3;
+
+table {
+
+  &.ranking {
+
+    th, td {
+      color: $cWhite;
+      border: none;
+      padding: 12px;
+      text: wrap;
+      font-size: 20px;
+    }
+  }
+}

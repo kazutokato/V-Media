@@ -1,0 +1,39 @@
+$cWhite: white;
+$cDblue: #002846;
+$cNblue: #7097c3;
+
+h5 {
+
+  &.new-registration {
+    margin-left: 80px;
+    margin-bottom: 30px;
+  }
+
+  &.new-session {
+    margin-left: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+table {
+
+  &.registration-table {
+    th, td {
+      color: $cWhite;
+      border: none;
+      padding: 10px;
+      text: wrap;
+      font-size: 16px;
+    }
+  }
+
+  &.sessions {
+    th, td {
+      color: $cWhite;
+      border: none;
+      padding: 10px;
+      text: wrap;
+      font-size: 16px;
+    }
+  }
+}

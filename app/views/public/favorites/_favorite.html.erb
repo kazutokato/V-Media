@@ -1,0 +1,11 @@
+<% if review.favorited_by?(current_end_user) %>
+  <%= link_to review_favorites_path(review.id), method: :delete, remote: true do %>
+    ♥
+  <% end %>
+  <%= review.favorites.count %> いいね
+<% else %>
+  <%= link_to review_favorites_path(review.id), method: :post, remote: true do %>
+    ♡
+  <% end %>
+  <%= review.favorites.count %> いいね
+<% end %>

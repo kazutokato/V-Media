@@ -1,0 +1,30 @@
+$cWhite: white;
+$cDblue: #002846;
+$cNblue: #7097c3;
+
+h5 {
+
+  &.contact-form {
+    margin-left: 60px;
+    margin-bottom: 30px;
+  }
+
+  &.contact-confirm {
+    margin-left: 60px;
+    margin-bottom: 30px;
+  }
+
+
+}
+
+table {
+
+  &.contact-confirm {
+    th, td {
+      color: $cWhite;
+      border: none;
+      padding: 10px;
+      text: wrap;
+    }
+  }
+}
