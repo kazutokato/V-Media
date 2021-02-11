@@ -46,5 +46,9 @@ https://docs.google.com/spreadsheets/d/19tBtU9sSe4LNPW0ren62vqk6bZfZsx6H3pZXQAFw
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+#### サイトイメージロゴ　DesignEvo　
+https://www.designevo.com/jp/
+
+#### アイコン　FontAwesome
+https://fontawesome.com/kits/e51724a875/use?welcome=yes
+
