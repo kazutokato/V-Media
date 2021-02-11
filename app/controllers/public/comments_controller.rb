@@ -7,7 +7,7 @@ class Public::CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.js { flash.now[:success] = "投稿が保存されました" }
+        format.js { flash.now[:comment_success] = "投稿が保存されました" }
       else
         format.js
       end
@@ -18,7 +18,7 @@ class Public::CommentsController < ApplicationController
     @review = Review.find(params[:review_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    flash.now[:warning] = "削除しました"
+    flash.now[:comment_delete] = "削除しました"
   end
 
   private
