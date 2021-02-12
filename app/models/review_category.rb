@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReviewCategory < ApplicationRecord
   belongs_to :medium
   belongs_to :feature

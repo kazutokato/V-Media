@@ -1,67 +1,69 @@
-class Public::ReviewsController < ApplicationController
-  before_action :authenticate_end_user!, only: [:new, :create, :show, :edit, :update, :destroy]
-  before_action :correct_end_user, only: [:edit, :update] #投稿したユーザーのみ、編集が可能。
+# frozen_string_literal: true
 
-  def new
-    @review_new = Review.new
-  end
+module Public
+  class ReviewsController < ApplicationController
+    before_action :authenticate_end_user!, only: %i[new create show edit update destroy]
+    before_action :correct_end_user, only: %i[edit update] # 投稿したユーザーのみ、編集が可能。
 
-  def create
-    @review_new = Review.new(review_params)
-    @review_new.end_user_id = current_end_user.id
-    if @review_new.save
-      redirect_to review_path(@review_new.id)
-    else
-      render :new
+    def new
+      @review_new = Review.new
     end
-  end
 
-  def index
-    @reviews = Review.search(params[:search])
-  end
-
-  def show
-    @review = Review.find(params[:id])
-    @comment = Comment.new
-  end
-
-  def edit
-    @review = Review.find(params[:id])
-  end
-
-  def update
-    @review = Review.find(params[:id])
-    if @review.update(review_params)
-      redirect_to review_path(@review.id)
-    else
-      render :edit
+    def create
+      @review_new = Review.new(review_params)
+      @review_new.end_user_id = current_end_user.id
+      if @review_new.save
+        redirect_to review_path(@review_new.id)
+      else
+        render :new
+      end
     end
-  end
 
-  def destroy
-    @review = Review.find(params[:id])
-    if @review.destroy
-      redirect_to reviews_path
-    else
-      render :edit
+    def index
+      @reviews = Review.search(params[:search])
     end
-  end
 
-  def search
-    @reviews = Review.search(params[:word])
-  end
+    def show
+      @review = Review.find(params[:id])
+      @comment = Comment.new
+    end
 
-  private
+    def edit
+      @review = Review.find(params[:id])
+    end
 
-  def review_params
-    params.require(:review).permit(:content_name, :cast, :gender, :body, :rate, :medium_id, :feature_id, :genre_id)
-  end
+    def update
+      @review = Review.find(params[:id])
+      if @review.update(review_params)
+        redirect_to review_path(@review.id)
+      else
+        render :edit
+      end
+    end
 
-  def correct_end_user
-    @review = Review.find(params[:id])
-    @end_user = @review.end_user
-    if current_end_user != @end_user
-      redirect_to reviews_path
+    def destroy
+      @review = Review.find(params[:id])
+      if @review.destroy
+        redirect_to reviews_path
+      else
+        render :edit
+      end
+    end
+
+    def search
+      @reviews = Review.search(params[:word])
+    end
+
+    private
+
+    def review_params
+      params.require(:review).permit(:content_name, :cast, :gender, :body, :rate, :medium_id, :feature_id, :genre_id)
+    end
+
+    def correct_end_user
+      @review = Review.find(params[:id])
+      @end_user = @review.end_user
+      redirect_to reviews_path if current_end_user != @end_user
     end
   end
 end

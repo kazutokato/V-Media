@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'searches/search'
   devise_for :end_users, controllers: {
@@ -5,7 +7,7 @@ Rails.application.routes.draw do
     sessions: 'end_users/sessions'
   }
 
-  devise_scope :end_user do #ゲストログイン機能に関するルーティング
+  devise_scope :end_user do # ゲストログイン機能に関するルーティング
     post 'end_users/guest_sign_in', to: 'end_users/sessions#new_guest'
   end
 
@@ -20,19 +22,19 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     get 'top' => 'manuals#top'
 
-    resources :end_users, only: [:show, :edit, :update] do
+    resources :end_users, only: %i[show edit update] do
       member do
         patch 'withdraw'
       end
     end
 
     resources :reviews do
-      resources :comments, only: [:create, :destroy]
-      resource :favorites, only: [:create, :destroy]
-      resources :review_categories, only: [:create, :destroy]
+      resources :comments, only: %i[create destroy]
+      resource :favorites, only: %i[create destroy]
+      resources :review_categories, only: %i[create destroy]
     end
 
-    resources :contacts, only: [:new, :create] do
+    resources :contacts, only: %i[new create] do
       collection do
         post 'confirm'
         get 'thanks'
@@ -46,15 +48,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
-    resources :reviews, only: [:index, :show, :destroy]
+    resources :reviews, only: %i[index show destroy]
     resources :comments, only: [:destroy]
-    resources :ranks, only: [:index, :create, :update]
-    resources :end_users, only: [:index, :show, :edit, :update, :destroy]
-    resources :contacts, only: [:index, :show]
+    resources :ranks, only: %i[index create update]
+    resources :end_users, only: %i[index show edit update destroy]
+    resources :contacts, only: %i[index show]
     resources :review_categories, only: [:index]
-    resources :media, only: [:create, :destroy]
-    resources :features, only: [:create, :destroy]
-    resources :genres, only: [:create, :destroy]
+    resources :media, only: %i[create destroy]
+    resources :features, only: %i[create destroy]
+    resources :genres, only: %i[create destroy]
   end
-
 end

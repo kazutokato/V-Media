@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -14,8 +16,8 @@ module VMedia
     # i18n 日本語表示に変更
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
-    
-    config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+
+    config.action_view.field_error_proc = proc do |html_tag, _instance|
       html_tag
     end
 

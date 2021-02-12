@@ -1,5 +1,6 @@
-class Review < ApplicationRecord
+# frozen_string_literal: true
 
+class Review < ApplicationRecord
   belongs_to :end_user
   belongs_to :medium
   belongs_to :feature
@@ -13,24 +14,25 @@ class Review < ApplicationRecord
   validates :gender, presence: true
   validates :body, presence: true, length: { maximum: 160 }
 
-  def favorited_by?(end_user) #いいね機能
+  # いいね機能
+  def favorited_by?(end_user)
     favorites.where(end_user_id: end_user.id).exists?
   end
 
   def self.search(search)
     if search
-      Review.where("content_name LIKE ?", "%#{search}%")
+      Review.where('content_name LIKE ?', "%#{search}%")
     else
       Review.all
     end
   end
 
-  def self.search(search) #検索機能
+  # 検索機能
+  def self.search(search)
     if search
-      Review.where("content_name LIKE ?", "%#{search}%") #番組名を部分検索
+      Review.where('content_name LIKE ?', "%#{search}%") # 番組名を部分検索
     else
       Review.all
     end
   end
-
 end
