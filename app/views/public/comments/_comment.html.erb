@@ -31,7 +31,7 @@
             <td><%= comment.end_user.nickname %></td>
             <td><%= comment.body %></td>
             <td>
- <% if comment.end_user == current_end_user %>
+              <% if comment.end_user == current_end_user %>
                 <div class="comment-delete">
                   <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, class: "delete-button" %>
                 </div>
