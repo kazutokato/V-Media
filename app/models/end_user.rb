@@ -23,4 +23,8 @@ class EndUser < ApplicationRecord
     super && (self.is_active === "Available") #is_activeが有効の場合は有効会員(ログイン可能)
   end
 
+  def self.looks(words) #管理者側検索機能
+    @end_user = EndUser.where("nickname LIKE ?", "%#{words}%") #ユーザーネームを部分検索
+  end
+
 end

@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-6 offset-3">
+      <div class="search-form">
+        <%= form_with url: admin_search_search_path, method: :get, local: :true do |f| %>
+          <%= f.select :range, options_for_select([['レビュー'], ['ユーザー'], ['お問い合わせ']]) %>
+          <%= f.text_field :word %>
+          <%= f.submit "検索", class: "search-button" %>
+        <% end %>
+      </div>
       <h5>ユーザー 一覧</h5><br>
       <table>
         <thead class="text-center">
