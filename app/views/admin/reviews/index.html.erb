@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-6 offset-3">
+      <div class="search-form">
+        <%= form_with url: admin_search_search_path, method: :get, local: :true do |f| %>
+          <%= f.select :range, options_for_select([['レビュー'], ['ユーザー'], ['お問い合わせ']]) %>
+          <%= f.text_field :word %>
+          <%= f.submit "検索", class: "search-button" %>
+        <% end %>
+      </div>
       <h5>レビュー 一覧</h5><br>
       <table>
         <thead>
@@ -19,7 +26,7 @@
               <td>
                 <%= link_to admin_end_user_path(review.end_user.id) do %>
                   <%= review.end_user.nickname %>
-                <% end %>  
+                <% end %>
               </td>
               <td>
                 <%= link_to admin_review_path(review.id) do %>

@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="search-form">
+        <%= form_with url: admin_search_search_path, method: :get, local: :true do |f| %>
+          <%= f.select :range, options_for_select([['レビュー'], ['ユーザー'], ['お問い合わせ']]) %>
+          <%= f.text_field :word %>
+          <%= f.submit "検索", class: "search-button" %>
+        <% end %>
+      </div>
+      <h5>検索結果</h5><br>
+      <% if @range == "レビュー" %>
+      <table>
+        <thead>
+          <tr>
+            <th>投稿ID</th>
+            <th>投稿 ユーザー</th>
+            <th>番 組 名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td>
+                <%= review.id %>
+              </td>
+              <td>
+                <%= link_to admin_end_user_path(review.end_user.id) do %>
+                  <%= review.end_user.nickname %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to admin_review_path(review.id) do %>
+                  <%= review.content_name %>
+                <% end %>
+              </td>
+            <tr>
+          <% end %>
+        <tbody>
+      </table>
+      <% elsif @range == "ユーザー" %>
+      <table>
+        <thead class="text-center">
+          <tr>
+            <th>ID</th>
+            <th>ユーザーネーム</th>
+            <th>メールアドレス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @end_users.each do |end_user| %>
+            <tr>
+              <td>
+                <%= link_to admin_end_user_path(end_user.id) do %>
+                  <%= end_user.id %>
+                <% end %>
+              </td>
+              <td><%= end_user.nickname %></td>
+              <td><%= end_user.email %></td>
+            <tr>
+          <% end %>
+        <tbody>
+      </table>
+      <% else %>
+      <table>
+        <thead class="text-center">
+          <tr>
+            <th>お名前</th>
+            <th>メールアドレス</th>
+            <th>お問い合わせ日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @contacts.each do |contact| %>
+            <tr>
+              <td><%= contact.name %></td>
+              <td><%= contact.email %></td>
+              <td>
+                <%= link_to admin_contact_path(contact.id) do %>
+                  <%= contact.created_at.strftime('%Y/%m/%d') %>
+                <% end %>
+              </td>
+            <tr>
+          <% end %>
+        <tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

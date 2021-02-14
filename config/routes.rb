@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'search/search'
+  end
   get 'searches/search'
   devise_for :end_users, controllers: {
     registrations: 'end_users/registrations',

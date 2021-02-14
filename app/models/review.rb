@@ -25,12 +25,16 @@ class Review < ApplicationRecord
     end
   end
 
-  def self.search(search) #検索機能
+  def self.search(search) #エンドユーザー用検索機能
     if search
       Review.where("content_name LIKE ?", "%#{search}%") #番組名を部分検索
     else
       Review.all
     end
+  end
+
+  def self.looks(words) #管理者用検索機能
+    @review = Review.where("content_name LIKE ?", "%#{words}%") #番組名を部分検索
   end
 
 end
