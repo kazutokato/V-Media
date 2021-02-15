@@ -17,19 +17,15 @@ class Review < ApplicationRecord
     favorites.where(end_user_id: end_user.id).exists?
   end
 
-  def self.search(search)
-    if search
-      Review.where("content_name LIKE ?", "%#{search}%")
+  def self.search_for(search,word) #エンドユーザー用検索機能
+    if search.nil?
+      Review.joins(:feature).where("reviews.content_name LIKE(?) ", "%#{word}%")
+    elsif word.nil?
+      Review.joins(:feature).where("features.id IN (?)", search)
+    elsif [search, word].present?
+      Review.joins(:feature).where("features.id IN (?) AND reviews.content_name LIKE (?) ", search, "%#{word}%" )
     else
-      Review.all
-    end
-  end
-
-  def self.search(search) #エンドユーザー用検索機能
-    if search
-      Review.where("content_name LIKE ?", "%#{search}%") #番組名を部分検索
-    else
-      Review.all
+      @reviews = Review.all
     end
   end
 
