@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     end
 
     resources :reviews do
+      get :search, on: :collection
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
       resources :review_categories, only: [:create, :destroy]

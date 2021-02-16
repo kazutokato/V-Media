@@ -36,6 +36,33 @@ table {
   }
 }
 
+.search-form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.paginate-field {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.pagination>li>a {
+  border: 1px solid $cWhite;
+  color: $cWhite;
+  background-color: $cNblue;
+  margin: 5px;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  color: $cNblue;
+  background-color: $cWhite;
+  transition: transform 0.3s;
+}
+
 .link-button {
     background-color: $cNblue;
     color: $cWhite;
