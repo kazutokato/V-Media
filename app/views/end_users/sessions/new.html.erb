@@ -22,8 +22,8 @@
         </table>
       <% end %>
       <h6>会員登録がお済みでない方</h6><br />
-      <div>　<%= link_to 'こちら', new_end_user_registration_path %>　から新規登録を行ってください。</div><br />
-      <div>もしくは、<%= link_to 'こちら', end_users_guest_sign_in_path, method: :post %>　からゲストユーザーとしてログインできます。</div><br />
+      <div class="registration-link">　<%= link_to 'こちら', new_end_user_registration_path %>　から新規登録を行ってください。</div><br />
+      <div class="session-link">もしくは、<%= link_to 'こちら', end_users_guest_sign_in_path, method: :post %>　からゲストユーザーとしてログインできます。</div><br />
     </div>
   </div>
 </div>

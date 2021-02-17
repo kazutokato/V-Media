@@ -47,8 +47,8 @@
       <% end %>
 
       <h5 class="new-registration">既に登録済みの方</h5>
-        <div><%= link_to 'こちら', new_end_user_session_path %> からログインしてください。</div><br />
-      <div>または <%= link_to 'こちら', end_users_guest_sign_in_path, method: :post %> からゲストユーザーとしてログインできます。</div>
+        <div class="session-link">　<%= link_to 'こちら', new_end_user_session_path %> からログインしてください。</div><br />
+      <div class="session-link">もしくは、 <%= link_to 'こちら', end_users_guest_sign_in_path, method: :post %> からゲストユーザーとしてログインできます。</div>
     </div>
   </div>
 </div>

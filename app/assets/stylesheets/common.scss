@@ -3,7 +3,7 @@ $cDblue: #002846;
 $cNblue: #7097c3;
 
 .body {
-  background-color: $cDblue;
+  background: linear-gradient(to right, #243949 0%, #517fa4 100%);
 }
 
 .header {
@@ -22,7 +22,6 @@ $cNblue: #7097c3;
 }
 
 .main {
-  background-color: $cDblue;
   color: $cWhite;
 }
 
@@ -33,6 +32,11 @@ table {
     color: $cWhite;
     border: 1px solid $cWhite;
     padding: 10px;
+
+    a {
+      color: $cWhite;
+      text-decoration:underline;
+    }
   }
 }
 

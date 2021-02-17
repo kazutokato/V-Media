@@ -12,8 +12,7 @@
       <table class="table table-inverse">
         <thead class="text-center">
           <tr>
-            <th></th>
-            <th>投稿 ユーザー</th>
+            <th colspan="2">投稿 ユーザー</th>
             <th>番 組 名</th>
             <th>投 稿 者 評 価</th>
             <th colspan="2">リ ア ク シ ョ ン</th>
@@ -23,11 +22,13 @@
           <% @reviews.each do |review| %>
             <tr>
               <td>
+                <%= attachment_image_tag review.end_user, :profile_image, fallback: "no_image_end_user.png", size: '30x30' %>
+              </td>
+              <td>
                 <%= link_to end_user_path(review.end_user.id) do %>
-                  <%= attachment_image_tag review.end_user, :profile_image, fallback: "no_image_end_user.png", size: '30x30' %>
+                  <%= review.end_user.nickname %>
                 <% end %>
               </td>
-              <td><%= review.end_user.nickname %></td>
               <td>
                 <%= link_to review_path(review.id) do %>
                   <%= review.content_name %>
