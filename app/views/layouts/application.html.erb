@@ -26,11 +26,6 @@
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to ranks_path, class:"link-button" do  %>
-                      <i class="fas fa-crown"></i> ランキング
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
                     <%= link_to end_user_path(current_end_user.id), class:"link-button" do %>
                       <i class="fas fa-address-card"></i> マイページ
                     <% end %>
@@ -77,11 +72,6 @@
                     <% end %>
                   </li>
                 <% else %>
-                  <li class="nav-item">
-                    <%= link_to ranks_path, class:"link-button" do  %>
-                      <i class="fas fa-crown"></i> ランキング
-                    <% end %>
-                  </li>
                   <li class="nav-item">
                     <%= link_to reviews_path, class:"link-button" do  %>
                       <i class="fas fa-search-plus"></i> レビュー検索
