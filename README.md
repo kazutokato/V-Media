@@ -35,8 +35,23 @@ https://docs.google.com/spreadsheets/d/1nbk-xkwsO6d4YonrDZSTQ_l6vr9_-p1NAMJTcRf4
 #### アプリケーション詳細設計書
 https://drive.google.com/file/d/1t9idcZaezGXdqipoYpGIv6LSbZm8zJ2j/view?usp=sharing
 
-## 機能一覧
-https://docs.google.com/spreadsheets/d/19tBtU9sSe4LNPW0ren62vqk6bZfZsx6H3pZXQAFwCnY/edit?usp=sharing
+## アプリケーションの機能一覧
+・ユーザー認証機能
+・レビュー投稿機能
+・レビューにコメント、いいねをつける機能
+・ページネーション機能
+・検索機能
+・お問い合わせ機能
+・メーラー機能(お問い合わせ内容を指定のアドレスに転送)
+・管理者機能
+
+## アプリケーションで使用している技術一覧
+・デプロイ環境構築 AWS
+・WEBサーバー Nginx
+・アプリケーションサーバー puma
+・データベース MySQL
+・ユーザー認証機能ライブラリ devise
+・画像アップロードライブラリ refile
 
 ## 開発環境
 - OS：Linux(CentOS)
