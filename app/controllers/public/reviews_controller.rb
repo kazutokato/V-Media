@@ -17,7 +17,7 @@ class Public::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.search_for(params[:search], params[:word]).page(params[:page]).per(6)
+    @reviews = Review.includes([:end_user]).search_for(params[:search], params[:word]).page(params[:page]).per(6)
   end
 
   def show

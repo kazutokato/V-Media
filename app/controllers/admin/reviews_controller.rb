@@ -1,6 +1,6 @@
 class Admin::ReviewsController < ApplicationController
   def index
-    @reviews = Review.page(params[:page]).per(6)
+    @reviews = Review.includes(:end_user).page(params[:page]).per(6)
   end
 
   def show
