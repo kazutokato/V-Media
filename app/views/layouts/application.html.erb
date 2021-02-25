@@ -20,78 +20,11 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                 <% if end_user_signed_in? %>
-                  <li class="nav-item">
-                    <%= link_to reviews_path, class:"link-button" do  %>
-                      <i class="fas fa-search-plus"></i> レビュー検索
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to end_user_path(current_end_user.id), class:"link-button" do %>
-                      <i class="fas fa-address-card"></i> マイページ
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to new_review_path, class:"link-button" do %>
-                      <i class="fas fa-pen-fancy"></i> 新規投稿
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to new_contact_path, class:"link-button" do %>
-                      <i class="fas fa-envelope"></i> お問い合わせ
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to destroy_end_user_session_path, method: :delete, class:"link-button" do %>
-                      <i class="fas fa-sign-out-alt"></i> ログアウト
-                    <% end %>
-                  </li>
+                  <%= render 'layouts/end_users' %>
                 <% elsif admin_signed_in? %>
-                  <li class="nav-item">
-                    <%= link_to admin_reviews_path, class:"link-button" do %>
-                      <i class="fas fa-align-left"></i> レビュー 一覧
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to admin_end_users_path, class:"link-button" do %>
-                      <i class="fas fa-user-friends"></i> ユーザー 一覧
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to admin_contacts_path, class:"link-button" do %>
-                      <i class="fas fa-envelope"></i> お問い合わせ一覧
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to admin_review_categories_path, class:"link-button" do %>
-                      <i class="fas fa-mars-stroke"></i>カテゴリー追加
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to destroy_admin_session_path, method: :delete, class:"link-button" do %>
-                      <i class="fas fa-sign-out-alt"></i> ログアウト
-                    <% end %>
-                  </li>
+                  <%= render 'layouts/admins' %>
                 <% else %>
-                  <li class="nav-item">
-                    <%= link_to reviews_path, class:"link-button" do  %>
-                      <i class="fas fa-search-plus"></i> レビュー検索
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to new_contact_path, class:"link-button" do %>
-                      <i class="fas fa-envelope"></i> お問い合わせ
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to new_end_user_registration_path, class:"link-button" do %>
-                      <i class="fas fa-user-plus"></i> 新規登録
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to end_user_session_path, method: :post, class:"link-button" do %>
-                      <i class="fas fa-sign-in-alt"></i> ログイン
-                    <% end %>
-                  </li>
+                  <%= render 'layouts/others' %>
                 <% end %>
               </ul>
             </div>
@@ -103,7 +36,7 @@
     </main>
     <footer class="footer">
       <div class="container">
-        Copyright © 2021 V-Media All Rights Reserved.
+        Copyright © 2021 V-Media. All Rights Reserved.
       </div>
     </footer>
   </body>
