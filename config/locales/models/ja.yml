@@ -26,6 +26,9 @@ ja:
         gender: 性別
         rate: レート
         body: レビュー
+        genre: ジャンル
+        feature: 声質
+        medium: 放送形式
       medium:
         content: 放送形式
         id: 放送形式

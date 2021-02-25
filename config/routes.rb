@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'search/search'
-  end
-  get 'searches/search'
+
   devise_for :end_users, controllers: {
     registrations: 'end_users/registrations',
     sessions: 'end_users/sessions'
@@ -18,9 +15,6 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
-    get 'about' => 'homes#about'
-    get 'top' => 'manuals#top'
-
     resources :end_users, only: [:show, :edit, :update] do
       member do
         patch 'withdraw'
@@ -37,20 +31,15 @@ Rails.application.routes.draw do
     resources :contacts, only: [:new, :create] do
       collection do
         post 'confirm'
-        get 'thanks'
       end
     end
-
-    get 'search' => 'searches#search'
-
-    resources :ranks, only: [:index]
   end
 
   namespace :admin do
     root to: 'homes#top'
+    get 'search/search'
     resources :reviews, only: [:index, :show, :destroy]
     resources :comments, only: [:destroy]
-    resources :ranks, only: [:index, :create, :update]
     resources :end_users, only: [:index, :show, :edit, :update, :destroy]
     resources :contacts, only: [:index, :show]
     resources :review_categories, only: [:index]

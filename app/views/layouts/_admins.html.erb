@@ -1,0 +1,25 @@
+<li class="nav-item">
+  <%= link_to admin_reviews_path, class:"link-button" do %>
+    <i class="fas fa-align-left"></i> レビュー 一覧
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to admin_end_users_path, class:"link-button" do %>
+    <i class="fas fa-user-friends"></i> ユーザー 一覧
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to admin_contacts_path, class:"link-button" do %>
+    <i class="fas fa-envelope"></i> お問い合わせ一覧
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to admin_review_categories_path, class:"link-button" do %>
+    <i class="fas fa-mars-stroke"></i>カテゴリー追加
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to destroy_admin_session_path, method: :delete, class:"link-button" do %>
+    <i class="fas fa-sign-out-alt"></i> ログアウト
+  <% end %>
+</li>
